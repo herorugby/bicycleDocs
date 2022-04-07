@@ -29,6 +29,8 @@
                     </div>
                     <div class="sec-reg-inner-form">
                         <form action="" method="post" enctype="multipart/form-data">
+
+                            <!-- 基本情報 -->
                             <dl>
                                 <!-- お名前 -->
                                 <dt>お名前<span class="required">必須</span></dt>
@@ -64,34 +66,276 @@
 
                                 <!-- 住所 -->
                                 <dt>ご住所</dt>
-                                <dd>
-                                    <input type="mail" name="email" size="35" maxlength="255" value="" />
+                                <dd>郵便番号
+                                    <input type="text" name="郵便番号" onKeyUp="AjaxZip3.zip2addr(this,'','住所','住所');">
+                                </dd>
+                                <dd>住所
+                                    <input type="text" name="住所" size="35">
                                 </dd>
 
                                 <!-- ご来店日 -->
                                 <dt>初回ご来店日</dt>
                                 <dd>
-                                    <input type="mail" name="email" size="35" maxlength="255" value="" />
+                                    <input type="date" name="date" />
                                 </dd>
 
                                 <!-- 登録車種 -->
                                 <dt>車種</dt>
                                 <dd>
-                                    <input type="mail" name="email" size="35" maxlength="255" value="" />
+                                    <input type="text" name="body" size="35" maxlength="100" value="" />
                                 </dd>
 
                                 <!-- 車体No, -->
                                 <dt>車体番号</dt>
                                 <dd>
-                                    <input type="mail" name="email" size="35" maxlength="255" value="" />
+                                    <input type="text" name="frameno" size="35" maxlength="100" value="" />
                                 </dd>
 
                                 <!-- 防犯No, -->
                                 <dt>防犯登録番号</dt>
                                 <dd>
-                                    <input type="mail" name="email" size="35" maxlength="255" value="" />
+                                    <input type="text" name="registno" size="35" maxlength="20" value="" />
+                                </dd>
+                                <!-- サムネイル, -->
+                                <dt>車体写真</dt>
+                                <dd>
+                                    <input type="file" name="image" size="35" value="test" />
                                 </dd>
                             </dl>
+
+                            <!-- 新車情報 -->
+                            <table>
+                                <tr>
+                                    <th>No,</th>
+                                    <th>メーカー</th>
+                                    <th>商品名</th>
+                                    <th>サイズ・カラー</th>
+                                    <th>数量</th>
+                                    <th>金額</th>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>6</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>7</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>8</td>
+                                    <td>
+                                        <input type="text" name="maker" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="products" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="sizecolor" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="quantity" size="35" maxlength="100" value="" />
+                                    </td>
+                                    <td>
+                                        <input type="number" name="price" size="35" maxlength="10" value="" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>memo</td>
+                                    <td colspan="5">
+                                        <textarea name="memo" cols="80" rows="10">組み立て方法などを詳細などをメモしておく</textarea>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- 修理情報 -->
+                            <table>
+                                <tr>
+                                    <th>No,</th>
+                                    <th>日付</th>
+                                    <th>修理内容・メモ</th>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <input type="date" name="fixdate" />
+                                    </td>
+                                    <td>
+                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <input type="date" name="fixdate" />
+                                    </td>
+                                    <td>
+                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <input type="date" name="fixdate" />
+                                    </td>
+                                    <td>
+                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <input type="date" name="fixdate" />
+                                    </td>
+                                    <td>
+                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <input type="date" name="fixdate" />
+                                    </td>
+                                    <td>
+                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="sec-reg-inner-form-check">
+                                <input type="submit" value="入力内容を確認する" />
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -109,5 +353,6 @@
         <!-- END footer -->
     </div>
 
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </body>
 </html>
