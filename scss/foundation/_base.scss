@@ -1,0 +1,249 @@
+html,
+body {
+    font-family: sans-serif; //iOS含め一旦フォントをゴシック系にする
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+    padding: 0;
+}
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl,
+dt,
+dd,
+ul,
+ol,
+li {
+    font-weight: inherit;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------------------
+img, svg
+---------------------------------------------------------------------- */
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a:hover img {
+    opacity: .85;
+}
+
+svg {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+/* ----------------------------------------------------------------------
+Link
+---------------------------------------------------------------------- */
+a {
+    color: inherit;
+    text-decoration: none;
+    ;
+}
+
+/* ----------------------------------------------------------------------
+Table
+---------------------------------------------------------------------- */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ----------------------------------------------------------------------
+Display
+---------------------------------------------------------------------- */
+.dp-none {
+    display: none;
+}
+
+.dp-block {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .pc-dp-none {
+        display: none !important;
+    }
+
+    .mb-dp-none {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .pc-dp-none {
+        display: block !important;
+    }
+
+    .mb-dp-none {
+        display: none !important;
+    }
+}
+
+
+/* ----------------------------------------------------------------------
+float
+---------------------------------------------------------------------- */
+.fl-left {
+    float: left;
+}
+
+.fl-right {
+    float: right;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+
+/* ----------------------------------------------------------------------
+Font
+---------------------------------------------------------------------- */
+$font-min: "游明朝",
+YuMincho,
+"ヒラギノ明朝 ProN W3",
+"Hiragino Mincho ProN",
+"Noto Serif JP",
+"HG明朝E",
+"ＭＳ Ｐ明朝",
+serif;
+$font-goth: "ヒラギノ角ゴ Pro",
+"Hiragino Kaku Gothic Pro",
+"游ゴシック",
+YuGothic,
+"メイリオ",
+"Meiryo",
+sans-serif;
+$font-serif: georgia,
+'times new roman',
+times,
+serif;
+$font-sansserif: arial,
+"Helvetica Neue",
+helvetica,
+sans-serif;
+
+
+/* ----------------------------------------------------------------------
+Text Formation
+---------------------------------------------------------------------- */
+.bold {
+    font-weight: bold;
+}
+
+.ta-center {
+    text-align: center;
+}
+
+.ta-right {
+    text-align: right;
+}
+
+.ta-left {
+    text-align: left;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+
+.indent {
+    text-indent: -1em;
+    padding-left: 1em;
+}
+
+.text-vertical {
+    -ms-writing-mode: tb-rl;
+    /* IE用　*/
+    -webkit-writing-mode: vertical-rl;
+    /* chrome用　*/
+    -o-writing-mode: vertical-rl;
+    /* opera用　*/
+    writing-mode: vertical-rl;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+_:-ms-lang(x)::-ms-backdrop,
+.text-vertical {
+    writing-mode: tb-rl;
+}
+
+@media (max-width: 767px) {
+    .text-vertical {
+        -ms-writing-mode: initial;
+        /* IE用　*/
+        -webkit-writing-mode: initial;
+        /* chrome用　*/
+        -o-writing-mode: initial;
+        /* opera用　*/
+        writing-mode: initial;
+    }
+}
+
+
+
+/* ----------------------------------------------------------------------
+Form
+---------------------------------------------------------------------- */
+input,
+optgroup,
+select,
+textarea {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #aaa;
+    border-radius: 5px;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    appearance: auto;
+
+    &:focus {
+        border-color: #66afe9;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        outline: 0;
+    }
+}
