@@ -1,0 +1,24 @@
+.sec-reg {
+    &-inner-form {
+        margin-top: 30px;
+        dl {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+        dt {
+            width: 30%;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+        dd {
+            width: 70%;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+    }
+}
