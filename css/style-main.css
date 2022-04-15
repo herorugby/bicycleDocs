@@ -701,8 +701,20 @@ textarea:focus {
   margin: 0 auto;
 }
 
-.sec-reg-inner-form {
-  margin-top: 30px;
+.header-inner {
+  margin: 10px 0;
+}
+.header-inner h1 {
+  font-family: "Permanent Marker", cursive;
+  text-align: center;
+  font-size: 50px;
+}
+
+.sec-reg-inner-tit {
+  margin-bottom: 25px;
+}
+.sec-reg-inner-tit h2 {
+  text-align: center;
 }
 .sec-reg-inner-form dl {
   display: -webkit-box;
@@ -721,7 +733,6 @@ textarea:focus {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  padding-top: 24px;
   padding-bottom: 24px;
 }
 .sec-reg-inner-form dt {

@@ -1,13 +1,28 @@
+.header-inner {
+    margin: 10px 0;
+    h1 {
+        font-family: 'Permanent Marker', cursive;
+        text-align: center;
+        font-size: 50px;
+    }
+}
+
 .sec-reg {
+    &-inner-tit {
+        margin-bottom: 25px;
+        h2 {
+            text-align: center;
+        }
+    }
     &-inner-form {
-        margin-top: 30px;
+        // margin-top: 30px;
         dl {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding-top: 24px;
+            // padding-top: 24px;
             padding-bottom: 24px;
         }
         dt {
