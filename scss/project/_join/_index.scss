@@ -15,7 +15,8 @@
         }
     }
     &-inner-form {
-        // margin-top: 30px;
+        max-width: 1080px;
+        margin: 40px auto 0;
         dl {
             display: flex;
             flex-wrap: wrap;
@@ -30,10 +31,24 @@
             padding-top: 24px;
             padding-bottom: 24px;
         }
+        dt .required {
+            border-radius: 6px;
+            margin-right: 8px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 48px;
+            display: inline-block;
+            text-align: center;
+            background: #5bc8ac;
+            color: #fff;
+            font-size: 14px;
+        }
         dd {
             width: 70%;
-            padding-top: 24px;
-            padding-bottom: 24px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1em;
+            background: #eaedf2;
         }
     }
 }

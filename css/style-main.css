@@ -716,6 +716,10 @@ textarea:focus {
 .sec-reg-inner-tit h2 {
   text-align: center;
 }
+.sec-reg-inner-form {
+  max-width: 1080px;
+  margin: 40px auto 0;
+}
 .sec-reg-inner-form dl {
   display: -webkit-box;
   display: -webkit-flex;
@@ -740,8 +744,22 @@ textarea:focus {
   padding-top: 24px;
   padding-bottom: 24px;
 }
+.sec-reg-inner-form dt .required {
+  border-radius: 6px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #5bc8ac;
+  color: #fff;
+  font-size: 14px;
+}
 .sec-reg-inner-form dd {
   width: 70%;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1em;
+  background: #eaedf2;
 }/*# sourceMappingURL=style-main.css.map */

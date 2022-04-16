@@ -32,80 +32,108 @@
                     <div class="sec-reg-inner-form">
                         <form action="" method="post" enctype="multipart/form-data">
 
-                            <!-- 基本情報 -->
-                            <dl>
-                                <!-- お名前 -->
-                                <dt>お名前<span class="required">必須</span></dt>
-                                <dd>
-                                    <input type="text" name="namae" size="35" maxlength="255" value="" />
+                            <!--
+                                基本情報
+                            -->
+
+                            <!-- お名前 -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="namae">お名前<span class="required">必須</span></label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="namae" type="text" name="namae" size="35" maxlength="255" value="" />
                                     <p class="error">*お客様のお名前を入力して下さい。</p>
-                                </dd>
+                                </div>
+                            </div>
 
-                                <!-- フリガナ -->
-                                <dt>フリガナ<span class="required">必須</span></dt>
-                                <dd>
-                                    <input type="text" name="kana" size="35" maxlength="255" value="" />
+                            <!-- フリガナ -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="kana">フリガナ<span class="required">必須</span></label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="kana" type="text" name="kana" size="35" maxlength="255" value="" />
                                     <p class="error">*お客様のフリガナを入力して下さい。</p>
-                                </dd>
+                                </div>
+                            </div>
 
-                                <!-- Tel -->
-                                <dt>Tel</dt>
-                                <dd>
-                                    <input type="tel" name="tel" size="12" maxlength="20" />
-                                </dd>
+                            <!-- Tel -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="tel">Tel</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="tel" type="tel" name="tel" size="12" maxlength="20" />
+                                </div>
+                            </div>
 
-                                <!-- 携帯電話 -->
-                                <dt>携帯</dt>
-                                <dd>
-                                    <input type="tel" name="sell" size="12" maxlength="20" />
-                                </dd>
+                            <!-- 携帯電話 -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="sell">携帯</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="sel" type="tel" name="sell" size="12" maxlength="20" />
+                                </div>
+                            </div>
 
-                                <!-- メール -->
-                                <dt>メール</dt>
-                                <dd>
-                                    <input type="mail" name="email" size="35" maxlength="255" value="" />
-                                </dd>
+                            <!-- メール -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="email">メール</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="email" type="mail" name="email" size="35" maxlength="255" value="" />
+                                </div>
+                            </div>
 
-                                <!-- 住所 -->
-                                <dt>ご住所</dt>
-                                <dd>郵便番号
-                                    <input type="text" name="郵便番号" onKeyUp="AjaxZip3.zip2addr(this,'','住所','住所');">
-                                </dd>
-                                <dd>住所
-                                    <input type="text" name="住所" size="35">
-                                </dd>
+                            <!-- 住所 -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="jusyo">ご住所</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <p>郵便番号
+                                        <input id="jusyo" type="text" name="郵便番号" onKeyUp="AjaxZip3.zip2addr(this,'','住所','住所');">
+                                    </p>
+                                    <p>住所
+                                        <input id="jusyo" type="text" name="住所" size="35">
+                                    </p>
+                                </div>
+                            </div>
 
-                                <!-- ご来店日 -->
-                                <dt>初回ご来店日</dt>
-                                <dd>
-                                    <input type="date" name="date" />
-                                </dd>
+                            <!-- ご来店日 -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="date">初回ご来店日</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="date" type="date" name="date" />
+                                </div>
+                            </div>
 
-                                <!-- 登録車種 -->
-                                <dt>車種</dt>
-                                <dd>
-                                    <input type="text" name="body" size="35" maxlength="100" value="" />
-                                </dd>
+                            <!-- 登録車種 -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="body">車種</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="body" type="text" name="body" size="35" maxlength="100" value="" />
+                                </div>
+                            </div>
 
-                                <!-- 車体No, -->
-                                <dt>車体番号</dt>
-                                <dd>
+                            <!-- 車体No, -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="frameno">車体番号</label>
+                                <div class="sec-reg-inner-form-item-input">
                                     <input type="text" name="frameno" size="35" maxlength="100" value="" />
-                                </dd>
+                                </div>
+                            </div>
 
-                                <!-- 防犯No, -->
-                                <dt>防犯登録番号</dt>
-                                <dd>
-                                    <input type="text" name="registno" size="35" maxlength="20" value="" />
-                                </dd>
-                                <!-- サムネイル, -->
-                                <dt>車体写真</dt>
-                                <dd>
-                                    <input type="file" name="image" size="35" value="test" />
-                                </dd>
-                            </dl>
+                            <!-- 防犯No, -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="registno">防犯登録番号</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="registno" type="text" name="registno" size="35" maxlength="20" value="" />
+                                </div>
+                            </div>
 
-                            <!-- 新車情報 -->
+                            <!-- サムネイル -->
+                            <div class="sec-reg-inner-form-item">
+                                <label for="image">車体写真</label>
+                                <div class="sec-reg-inner-form-item-input">
+                                    <input id="image" type="file" name="image" size="35" value="test" />
+                                </div>
+                            </div>
+
+                            <!--
+                                新車情報
+                            -->
                             <table>
                                 <tr>
                                     <th>No,</th>
@@ -280,7 +308,9 @@
                                 </tr>
                             </table>
 
-                            <!-- 修理情報 -->
+                            <!--
+                                修理情報
+                            -->
                             <table>
                                 <tr>
                                     <th>No,</th>
