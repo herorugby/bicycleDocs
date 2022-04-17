@@ -1,54 +1,18 @@
-.header-inner {
-    margin: 10px 0;
-    h1 {
-        font-family: 'Permanent Marker', cursive;
-        text-align: center;
-        font-size: 50px;
-    }
-}
-
 .sec-reg {
     &-inner-tit {
         margin-bottom: 25px;
         h2 {
             text-align: center;
+            font-size: 25px;
         }
     }
-    &-inner-form {
-        max-width: 1080px;
-        margin: 40px auto 0;
-        dl {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            // padding-top: 24px;
-            padding-bottom: 24px;
-        }
-        dt {
-            width: 30%;
-            padding-top: 24px;
-            padding-bottom: 24px;
-        }
-        dt .required {
-            border-radius: 6px;
-            margin-right: 8px;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            width: 48px;
-            display: inline-block;
-            text-align: center;
-            background: #5bc8ac;
-            color: #fff;
-            font-size: 14px;
-        }
-        dd {
-            width: 70%;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 1em;
-            background: #eaedf2;
-        }
+
+    &-inner-contents {
+        font-size: 20px;
+    }
+
+    &-inner-change {
+        text-align: end;
+        font-size: 20px;
     }
 }

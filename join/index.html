@@ -35,13 +35,13 @@
                     <div class="sec-reg-inner-contents">
                         <p>下記のフォームに必要事項をご記載ください。</p>
                     </div>
-                    <div class="sec-reg-inner-form">
+                    <div class="form sec-reg-inner-form">
                         <form action="" method="post" enctype="multipart/form-data">
 
                             <!-- メール -->
-                            <div class="sec-reg-inner-form-item">
-                                <label for="email">メールアドレス<span class="required">必須</span></label>
-                                <div class="sec-reg-inner-form-item-input">
+                            <div class="form-item sec-reg-inner-form-item">
+                                <label for="email" class="form-item-label sec-reg-inner-form-item-label"><span class="required">必須</span>メールアドレス</label>
+                                <div class="form-item-input sec-reg-inner-form-item-input">
                                     <input id="email" type="mail" name="email" size="35" maxlength="255" value="" />
                                     <p class="error">*メールアドレスを入力してください</p>
                                     <p class="error">*入力したメールアドレスは、既に登録されています。</p>
@@ -49,9 +49,9 @@
                             </div>
 
                             <!-- パスワード -->
-                            <div class="sec-reg-inner-form-item">
-                                <label for="password">パスワード<span class="required">必須</span></label>
-                                <div class="sec-reg-inner-form-item-input">
+                            <div class="form-item sec-reg-inner-form-item">
+                                <label for="password" class="form-item-label sec-reg-inner-form-item-label"><span class="required">必須</span>パスワード</span></label>
+                                <div class="form-item-input sec-reg-inner-form-item-input">
                                     <input id="password" type="password" name="password" size="10" maxlength="20" value="英数字の小文字、大文字を含めてご入力ください。" />
                                     <p class="error">*パスワードを入力してください。英数字の小文字、大文字を含めてご入力ください。</p>
                                     <p class="error">*パスワードは4文字以上で入力してください</p>
@@ -59,25 +59,25 @@
                             </div>
 
                             <!-- 店名 -->
-                            <div class="sec-reg-inner-form-item">
-                                <label for="shopname">店名<span class="required">必須</span></label>
-                                <div class="sec-reg-inner-form-item-input">
+                            <div class="form-item sec-reg-inner-form-item">
+                                <label for="shopname" class="form-item-label sec-reg-inner-form-item-label"><span class="required">必須</span>店名</label>
+                                <div class="form-item-input sec-reg-inner-form-item-input">
                                     <input id="shopname" type="text" name="name" size="35" maxlength="255" value="" />
                                     <p class="error">*店名を入力してください</p>
                                 </div>
                             </div>
 
                             <!-- サムネイル -->
-                            <div class="sec-reg-inner-form-item">
-                                <label for="image">サムネイルの選択</label>
-                                <div class="sec-reg-inner-form-item-input">
+                            <div class="form-item sec-reg-inner-form-item">
+                                <label for="image" class="form-item-label sec-reg-inner-form-item-label">サムネイルの選択</label>
+                                <div class="form-item-input sec-reg-inner-form-item-input">
                                     <!-- ブラウザによって「ファイル選択」の表記が変わってくる -->
                                     <input id="image" type="file" name="image" size="35" value="test" />
                                     <p class="error">*写真の拡張子は、.jpg/.jpeg/.pngとなります。</p>
                                     <p class="error">*恐れ入りますが、画像を改めて指定してください。</p>
                                 </div>
                             </div>
-                            <div class="sec-reg-inner-form-check">
+                            <div class="form-check sec-reg-inner-form-check">
                                 <input type="submit" value="入力内容を確認する" />
                             </div>
                         </form>

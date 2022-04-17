@@ -1,4 +1,76 @@
 @charset "UTF-8";
+.sec-reg-inner-tit {
+  margin-bottom: 25px;
+}
+.sec-reg-inner-tit h2 {
+  text-align: center;
+  font-size: 25px;
+}
+.sec-reg-inner-contents {
+  font-size: 20px;
+}
+
+.form {
+  max-width: 1024px;
+  margin: 20px auto 0;
+}
+.form-item:first-of-type {
+  border-top: 1px solid #ddd;
+}
+.form-item {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 50px;
+}
+.form-item-label {
+  width: 100%;
+  max-width: 300px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 18px;
+}
+.form-item-label .required {
+  display: inline-block;
+  width: 48px;
+  text-align: center;
+  margin-right: 8px;
+  padding: 8px 0;
+  border-radius: 6px;
+  background: #5bc8ac;
+  color: #fff;
+  font-size: 14px;
+}
+.form-item-input {
+  width: 100%;
+  max-width: 724px;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+.form-check {
+  display: block;
+  width: 280px;
+  margin: 20px auto;
+  padding: 20px 0;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  background: #5bc8ac;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
 /*! destyle.css v1.0.13 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 /* Reset box-model
    ========================================================================== */
@@ -699,10 +771,11 @@ textarea:focus {
   width: 90%;
   max-width: 1024px;
   margin: 0 auto;
+  padding: 1em 0 3em;
 }
 
 .header-inner {
-  margin: 10px 0;
+  margin: 0 auto 10px;
 }
 .header-inner h1 {
   font-family: "Permanent Marker", cursive;
@@ -715,51 +788,12 @@ textarea:focus {
 }
 .sec-reg-inner-tit h2 {
   text-align: center;
+  font-size: 25px;
 }
-.sec-reg-inner-form {
-  max-width: 1080px;
-  margin: 40px auto 0;
+.sec-reg-inner-contents {
+  font-size: 20px;
 }
-.sec-reg-inner-form dl {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  padding-bottom: 24px;
-}
-.sec-reg-inner-form dt {
-  width: 30%;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-.sec-reg-inner-form dt .required {
-  border-radius: 6px;
-  margin-right: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width: 48px;
-  display: inline-block;
-  text-align: center;
-  background: #5bc8ac;
-  color: #fff;
-  font-size: 14px;
-}
-.sec-reg-inner-form dd {
-  width: 70%;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1em;
-  background: #eaedf2;
+.sec-reg-inner-change {
+  text-align: end;
+  font-size: 20px;
 }/*# sourceMappingURL=style-main.css.map */
