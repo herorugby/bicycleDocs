@@ -1,0 +1,46 @@
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    // margin: 0 auto;
+    border-top: 1px solid #333333;
+    border-left: 1px solid #333333;
+    padding: 0;
+    // table-layout: fixed;
+
+    .smallth {
+        width: 10%;
+    }
+    th,
+    td {
+        width: 18%;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        padding: 3px;
+        text-align: center;
+    }
+
+    th {
+        background: #FF9933;
+        color: #fff;
+    }
+
+    tr:nth-child(odd) {
+        background: #DDF1F4;
+    }
+
+    tr:hover {
+        background: #FCC;
+    }
+
+    textarea {
+        width: 100%;
+        text-align: start;
+        resize: vertical;
+    }
+}
+
+.sec-reg {
+    &-inner-form-table-tot td {
+        text-align: end;
+    }
+}

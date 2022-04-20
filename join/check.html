@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>登録内容の確認</title>
 
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <!-- style sheets -->
     <link rel="stylesheet" href="../css/style-main.min.css">
 </head>
 <body>
@@ -23,28 +32,51 @@
         <main>
             <section id="section-check" class="sec-che">
                 <div class="sec-che-inner">
-                    <div class="sec-check-inner-tit">
+                    <div class="sec-che-inner-tit">
                         <h2>登録内容の確認</h2>
                     </div>
-                    <div class="sec-check-inner-contents">
+                    <div class="sec-che-inner-contents">
                         <p>記入した内容を確認して、「登録する」ボタンをクリックしてください。</p>
                     </div>
-                    <div class="sec-check-inner-form">
+                    <div class="form sec-che-inner-form">
                         <form action="" method="post">
                             <input type="hidden" name="action" value="submit">
 
-                            <dl>
-                                <dt>メールアドレス</dt>
-                                <dd></dd>
-                                <dt>パスワード</dt>
-                                <dd>【表示されません】</dd>
-                                <dt>店名</dt>
-                                <dd></dd>
-                                <dt>サムネイル</dt>
-                                <dd></dd>
-                            </dl>
+                            <!-- メール -->
+                            <div class="form-item sec-che-inner-form-item">
+                                <label class="form-item-label sec-che-inner-form-item-label">メールアドレス</label>
+                                <div class="form-item-input sec-che-inner-form-item-input">
+                                    <p>入力内容を表示</p>
+                                </div>
+                            </div>
+
+                            <!-- パスワード -->
+                            <div class="form-item sec-che-inner-form-item">
+                                <label class="form-item-label sec-che-inner-form-item-label">パスワード</label>
+                                <div class="form-item-input sec-che-inner-form-item-input">
+                                    <p>パスワードは表示されません</p>
+                                </div>
+                            </div>
+
+                            <!-- 店名 -->
+                            <div class="form-item sec-che-inner-form-item">
+                                <label class="form-item-label sec-che-inner-form-item-label">店名</label>
+                                <div class="form-item-input sec-che-inner-form-item-input">
+                                    <p>入力内容を表示</p>
+                                </div>
+                            </div>
+
+                            <!-- サムネイル -->
+                            <div class="form-item sec-che-inner-form-item">
+                                <label class="form-item-label sec-che-inner-form-item-label">サムネイル</label>
+                                <div class="form-item-input sec-che-inner-form-item-input">
+                                    <div>イメージを表示</div>
+                                </div>
+                            </div>
+
                             <div class="sec-che-inner-form-rewrite">
-                                <a href="">&laquo;&nbsp;書き直す</a> | <input type="submit" value="登録する" />
+                                <a href="">&laquo;&nbsp;書き直す</a>
+                                <input type="submit" value="登録する" />
                             </div>
                         </form>
                     </div>
@@ -57,12 +89,12 @@
         <!-- START footer -->
         <footer>
             <div class="footer-inner">
-                <p></p>
+                <p><small>&copy; <span id="copyRight"></span> 小野商店</small></p>
             </div>
         </footer>
         <!-- END footer -->
     </div>
 
-
+    <script src="../js/copyright.js"></script>
 </body>
 </html>

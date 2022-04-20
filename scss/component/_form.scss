@@ -57,6 +57,10 @@
             background: #eaedf2;
             font-size: 18px;
         }
+
+        &-input input {
+            width: 100%;
+        }
     }
 
     &-check {

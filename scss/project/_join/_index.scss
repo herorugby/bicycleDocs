@@ -14,5 +14,9 @@
     &-inner-change {
         text-align: end;
         font-size: 20px;
+
+        a {
+            text-decoration: underline;
+        }
     }
 }
