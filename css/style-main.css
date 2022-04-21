@@ -522,9 +522,10 @@ caption {
 }
 
 td,
-th {
-  vertical-align: top;
-  padding: 0;
+th,
+tr {
+  vertical-align: middle;
+  padding: 3px;
 }
 
 th {
@@ -622,6 +623,14 @@ a {
 /* ----------------------------------------------------------------------
 Table
 ---------------------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+}
+
 /* ----------------------------------------------------------------------
 Display
 ---------------------------------------------------------------------- */
@@ -804,25 +813,35 @@ Form
 
 .form-table {
   width: 100%;
-  border-collapse: collapse;
+  max-width: 1024px;
   border-top: 1px solid #333333;
   border-left: 1px solid #333333;
-  padding: 0;
+  font-size: 16px;
+  margin: 10px auto;
 }
-.form-table .smallth {
-  width: 10%;
+.form-table caption {
+  margin: 10px auto;
+  text-align: center;
+  font-size: 19px;
 }
 .form-table th,
 .form-table td {
   width: 18%;
+  max-width: 190px;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
-  padding: 3px;
   text-align: center;
+}
+.form-table .smallth {
+  width: 10%;
+  max-width: 74px;
 }
 .form-table th {
   background: #FF9933;
   color: #fff;
+}
+.form-table tr {
+  height: 50px;
 }
 .form-table tr:nth-child(odd) {
   background: #DDF1F4;
@@ -832,10 +851,15 @@ Form
 }
 .form-table textarea {
   width: 100%;
+  max-width: 950px;
+  height: 100px;
   text-align: start;
   resize: vertical;
 }
 
 .sec-reg-inner-form-table-tot td {
   text-align: end;
+}
+.sec-reg-inner-form-table-tot-txt {
+  padding-right: 20px;
 }/*# sourceMappingURL=style-main.css.map */

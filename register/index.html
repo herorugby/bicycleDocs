@@ -139,7 +139,10 @@
                             <!--
                                 新車情報
                             -->
-                            <table class="form-table sec-reg-inner-form-table">
+                            <table class="form-table new-bicycle sec-reg-inner-form-table">
+
+                                <caption class="bold">--新車購入情報--</caption>
+
                                 <tr>
                                     <th class="smallth">No,</th>
                                     <th>メーカー</th>
@@ -302,24 +305,28 @@
                                 </tr>
 
                                 <tr class="sec-reg-inner-form-table-tot">
-                                    <td class="sec-reg-inner-form-table-tot-txt" colspan="5">合計</td>
+                                    <td class="sec-reg-inner-form-table-tot-txt bold" colspan="5">TOTAL</td>
                                     <td class="sec-reg-inner-form-table-tot-total"></td>
                                 </tr>
 
                                 <tr class="sec-reg-inner-form-table-txt">
-                                    <td>memo</td>
+                                    <td>MEMO</td>
                                     <td colspan="5">
                                         <textarea name="memo" placeholder="組み立て方法などを詳細などをメモしておく"></textarea>
                                     </td>
                                 </tr>
+
                             </table>
 
                             <!--
                                 修理情報
                             -->
-                            <table>
+                            <table class="form-table fix-bicycle sec-reg-inner-form-table">
+
+                                <caption class="bold">--修理情報--</caption>
+
                                 <tr>
-                                    <th>No,</th>
+                                    <th class="smallth">No,</th>
                                     <th>日付</th>
                                     <th>修理内容・メモ</th>
                                 </tr>
@@ -330,7 +337,7 @@
                                         <input type="date" name="fixdate" />
                                     </td>
                                     <td>
-                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                        <textarea name="fixmemo" placeholder="修理内容・メモ"></textarea>
                                     </td>
                                 </tr>
 
@@ -340,7 +347,7 @@
                                         <input type="date" name="fixdate" />
                                     </td>
                                     <td>
-                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                        <textarea name="fixmemo" placeholder="修理内容・メモ"></textarea>
                                     </td>
                                 </tr>
 
@@ -350,7 +357,7 @@
                                         <input type="date" name="fixdate" />
                                     </td>
                                     <td>
-                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                        <textarea name="fixmemo" placeholder="修理内容・メモ"></textarea>
                                     </td>
                                 </tr>
 
@@ -360,7 +367,7 @@
                                         <input type="date" name="fixdate" />
                                     </td>
                                     <td>
-                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                        <textarea name="fixmemo" placeholder="修理内容・メモ"></textarea>
                                     </td>
                                 </tr>
 
@@ -370,7 +377,7 @@
                                         <input type="date" name="fixdate" />
                                     </td>
                                     <td>
-                                        <textarea name="fixmemo" cols="80" rows="5">修理内容・メモ</textarea>
+                                        <textarea name="fixmemo" placeholder="修理内容・メモ"></textarea>
                                     </td>
                                 </tr>
                             </table>
@@ -395,6 +402,7 @@
         <!-- END footer -->
     </div>
 
+    <!-- <script src="../js/table.js"></script> -->
     <script src="../js/copyright.js"></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </body>

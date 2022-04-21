@@ -1,27 +1,38 @@
 .form-table {
     width: 100%;
-    border-collapse: collapse;
-    // margin: 0 auto;
+    max-width: 1024px;
     border-top: 1px solid #333333;
     border-left: 1px solid #333333;
-    padding: 0;
-    // table-layout: fixed;
+    font-size: 16px;
+    margin: 10px auto;
 
-    .smallth {
-        width: 10%;
+    caption {
+        margin: 10px auto;
+        text-align: center;
+        font-size: 19px;
     }
+
     th,
     td {
         width: 18%;
+        max-width: 190px;
         border-right: 1px solid #333333;
         border-bottom: 1px solid #333333;
-        padding: 3px;
         text-align: center;
+    }
+
+    .smallth {
+        width: 10%;
+        max-width: 74px;
     }
 
     th {
         background: #FF9933;
         color: #fff;
+    }
+
+    tr {
+        height: 50px;
     }
 
     tr:nth-child(odd) {
@@ -34,6 +45,8 @@
 
     textarea {
         width: 100%;
+        max-width: 950px;
+        height: 100px;
         text-align: start;
         resize: vertical;
     }
@@ -42,5 +55,9 @@
 .sec-reg {
     &-inner-form-table-tot td {
         text-align: end;
+    }
+
+    &-inner-form-table-tot-txt {
+        padding-right: 20px;
     }
 }

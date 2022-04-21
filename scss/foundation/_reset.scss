@@ -483,9 +483,10 @@ caption {
 }
 
 td,
-th {
-    vertical-align: top;
-    padding: 0;
+th,
+tr {
+    vertical-align: middle;
+    padding: 3px;
 }
 
 th {
