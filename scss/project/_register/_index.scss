@@ -61,3 +61,16 @@
         padding-right: 20px;
     }
 }
+
+.fix-bicycle {
+
+    th,
+    td {
+        width: 45%;
+        max-width: 475px;
+    }
+    .smallth {
+        width: 10%;
+        max-width: 74px;
+    }
+}
