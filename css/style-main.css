@@ -713,12 +713,18 @@ Form
   max-width: 1024px;
   margin: 0 auto;
   padding: 1em 0 0;
+  overflow: hidden;
 }
 
-.header-inner {
+header {
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+}
+header .header-inner {
   margin: 0 auto 10px;
 }
-.header-inner h1 {
+header .header-inner h1 {
   font-family: "Permanent Marker", cursive;
   text-align: center;
   font-size: 50px;
@@ -811,7 +817,6 @@ Form
 
 .sec-reg-inner-form-addinfo {
   width: 100%;
-  max-width: 1024px;
   margin-top: 20px;
 }
 .sec-reg-inner-form-addinfo-contents {
@@ -838,11 +843,13 @@ Form
 }
 .sec-reg-inner-form-addinfo-input input:last-child {
   width: 8%;
+  background: #5bc8ac;
+  color: #fff;
+  font-weight: bold;
 }
 
 .form-table {
   width: 100%;
-  max-width: 1024px;
   border-top: 1px solid #333333;
   border-left: 1px solid #333333;
   font-size: 16px;
@@ -855,7 +862,7 @@ Form
 }
 .form-table th,
 .form-table td {
-  width: 17.5%;
+  width: 20%;
   max-width: 190px;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
@@ -880,7 +887,6 @@ Form
 }
 .form-table textarea {
   width: 100%;
-  max-width: 950px;
   height: 100px;
   text-align: start;
   resize: vertical;
@@ -895,12 +901,8 @@ Form
 
 .fix-bicycle th,
 .fix-bicycle td {
-  width: 42.075%;
+  width: 45%;
   max-width: 425px;
-}
-.fix-bicycle .smallth {
-  width: 5.85%;
-  max-width: 74px;
 }
 .fix-bicycle .midth {
   width: 10%;

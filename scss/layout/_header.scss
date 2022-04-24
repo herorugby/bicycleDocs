@@ -1,9 +1,15 @@
-.header-inner {
-    margin: 0 auto 10px;
+header {
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
 
-    h1 {
-        font-family: 'Permanent Marker', cursive;
-        text-align: center;
-        font-size: 50px;
+    .header-inner {
+        margin: 0 auto 10px;
+
+        h1 {
+            font-family: 'Permanent Marker', cursive;
+            text-align: center;
+            font-size: 50px;
+        }
     }
 }
