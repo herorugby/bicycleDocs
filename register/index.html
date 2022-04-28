@@ -159,18 +159,45 @@
 
                                 <caption class="bold">--新車購入情報内容--</caption>
 
-                                <tr>
-                                    <!-- <th class="smallth">No,</th> -->
-                                    <th>メーカー</th>
-                                    <th>商品名</th>
-                                    <th>サイズ・カラー</th>
-                                    <th>数量</th>
-                                    <th class="smallth">金額(税抜)</th>
-                                    <th class="smallth">金額(税込)</th>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <!-- <th class="smallth">No,</th> -->
+                                        <th>メーカー</th>
+                                        <th>商品名</th>
+                                        <th>サイズ・カラー</th>
+                                        <th>数量</th>
+                                        <th class="smallth">金額(税抜)</th>
+                                        <th class="smallth">金額(税込)</th>
+                                    </tr>
+                                </thead>
 
-                                <tr class="addForm">
-                                    <!-- <td>1</td> -->
+                                <tbody>
+                                    <tr class="addForm">
+                                        <!-- <td>1</td> -->
+                                        <td>
+                                            <input type="text" name="maker" value="" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name="products" value="" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name="sizecolor" value="" />
+                                        </td>
+                                        <td>
+                                            <input type="number" name="quantity" value="" />
+                                        </td>
+                                        <td>
+                                            <input type="number" name="pricetaxex" value="" />
+                                        </td>
+                                        <td>
+                                            <input type="number" name="pricetaxin" value="" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+
+                                <!-- <tr>
+                                    <td>2</td>
                                     <td>
                                         <input type="text" name="maker" value="" />
                                     </td>
@@ -189,42 +216,23 @@
                                     <td>
                                         <input type="number" name="pricetaxin" value="" />
                                     </td>
-                                </tr>
+                                </tr> -->
 
-                                <tr>
-                                    <!-- <td>2</td> -->
-                                    <td>
-                                        <input type="text" name="maker" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="products" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="sizecolor" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="quantity" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="pricetaxex" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="pricetaxin" value="" />
-                                    </td>
-                                </tr>
+                                <tfoot>
+                                    <tr class="sec-reg-inner-form-table-tot">
+                                        <td class="sec-reg-inner-form-table-tot-txt bold" colspan="4">TOTAL</td>
+                                        <td class="sec-reg-inner-form-table-tot-totaltaxex"></td>
+                                        <td class="sec-reg-inner-form-table-tot-totaltaxin"></td>
+                                    </tr>
 
-                                <tr class="sec-reg-inner-form-table-tot">
-                                    <td class="sec-reg-inner-form-table-tot-txt bold" colspan="4">TOTAL</td>
-                                    <td class="sec-reg-inner-form-table-tot-totaltaxex"></td>
-                                    <td class="sec-reg-inner-form-table-tot-totaltaxin"></td>
-                                </tr>
+                                    <tr class="sec-reg-inner-form-table-txt">
+                                        <!-- <td>MEMO</td> -->
+                                        <td colspan="6">
+                                            <textarea name="memo" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"></textarea>
+                                        </td>
+                                    </tr>
+                                </tfoot>
 
-                                <tr class="sec-reg-inner-form-table-txt">
-                                    <!-- <td>MEMO</td> -->
-                                    <td colspan="6">
-                                        <textarea name="memo" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"></textarea>
-                                    </td>
-                                </tr>
 
                             </table>
 
