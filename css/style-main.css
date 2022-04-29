@@ -815,39 +815,6 @@ header .header-inner h1 {
   text-align: center;
 }
 
-.sec-reg-inner-form-addinfo {
-  width: 100%;
-  margin-top: 20px;
-}
-.sec-reg-inner-form-addinfo-contents {
-  margin: 10px auto;
-  text-align: center;
-  font-size: 19px;
-}
-.sec-reg-inner-form-addinfo-input {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  text-align: center;
-  margin: 10px auto;
-}
-.sec-reg-inner-form-addinfo-input input {
-  width: 18%;
-  padding: 5px;
-  border: 1px solid black;
-}
-.sec-reg-inner-form-addinfo-input input:last-child {
-  width: 8%;
-  background: #5bc8ac;
-  color: #fff;
-  font-weight: bold;
-}
-
 .form-table {
   width: 100%;
   border-top: 1px solid #333333;
@@ -862,15 +829,16 @@ header .header-inner h1 {
 }
 .form-table th,
 .form-table td {
-  width: 20%;
-  max-width: 190px;
+  width: 18.75%;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   text-align: center;
 }
 .form-table .smallth {
   width: 10%;
-  max-width: 74px;
+}
+.form-table .minth {
+  width: 5%;
 }
 .form-table th {
   background: #FF9933;
@@ -891,7 +859,13 @@ header .header-inner h1 {
   text-align: start;
   resize: vertical;
 }
+.form-table .addForm {
+  display: none;
+}
 
+.sec-reg-inner-form-table-txt td {
+  background: #fff;
+}
 .sec-reg-inner-form-table-tot td {
   text-align: end;
   background: #ede4e1;
@@ -900,12 +874,26 @@ header .header-inner h1 {
   padding-right: 20px;
 }
 
-.fix-bicycle th,
-.fix-bicycle td {
-  width: 45%;
-  max-width: 425px;
+.fix-bicycle th {
+  width: 70%;
 }
 .fix-bicycle .midth {
+  width: 20%;
+}
+.fix-bicycle .minth {
   width: 10%;
-  max-width: 100px;
+}
+
+#addBtnNewBike,
+#addBtnFixBike {
+  display: block;
+  width: 100px;
+  padding: 4px 0;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  background: #5bc8ac;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
 }/*# sourceMappingURL=style-main.css.map */

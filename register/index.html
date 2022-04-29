@@ -143,24 +143,20 @@
 
                                 <caption class="bold">--新車購入情報内容--</caption>
 
-                                <!-- 行を追加するボタン -->
-                                <input type="button" value="行を追加" id="addBtnNewBike" />
-
                                 <thead>
                                     <tr>
-                                        <!-- <th class="smallth">No,</th> -->
                                         <th>メーカー</th>
                                         <th>商品名</th>
                                         <th>サイズ・カラー</th>
                                         <th>数量</th>
                                         <th class="smallth">金額(税抜)</th>
                                         <th class="smallth">金額(税込)</th>
+                                        <th class="minth">---</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <tr class="addForm">
-                                        <!-- <td>1</td> -->
                                         <td>
                                             <input type="text" name="maker" value="" />
                                         </td>
@@ -179,26 +175,28 @@
                                         <td>
                                             <input type="number" name="pricetaxin" value="" />
                                         </td>
+                                        <td>
+                                            <input class="btnDeleteNew" type="button" value="削除">
+                                        </td>
                                     </tr>
                                 </tbody>
 
                                 <tfoot>
-                                    <tr class="sec-reg-inner-form-table-tot">
+                                    <!-- <tr class="sec-reg-inner-form-table-tot">
                                         <td class="sec-reg-inner-form-table-tot-txt bold" colspan="4">TOTAL</td>
                                         <td class="sec-reg-inner-form-table-tot-totaltaxex"></td>
                                         <td class="sec-reg-inner-form-table-tot-totaltaxin"></td>
-                                    </tr>
+                                    </tr> -->
 
                                     <tr class="sec-reg-inner-form-table-txt">
-                                        <!-- <td>MEMO</td> -->
-                                        <td colspan="6">
+                                        <td colspan="7">
                                             <textarea name="memo" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"></textarea>
                                         </td>
                                     </tr>
                                 </tfoot>
-
-
                             </table>
+                            <!-- 新車情報を記載する行を追加するボタン -->
+                            <input type="button" value="↑入力↑" id="addBtnNewBike" />
 
                             <!--
                                 修理情報
@@ -207,28 +205,30 @@
 
                                 <caption class="bold">--修理情報--</caption>
 
-                                <!-- 行を追加するボタン -->
-                                <input type="button" value="行を追加" id="addBtnFixBike" />
-
                                 <thead>
                                     <tr>
                                         <th class="midth">日付</th>
                                         <th>修理内容・メモ</th>
+                                        <th class="minth">---</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
+                                    <tr class="addForm">
                                         <td>
                                             <input type="date" name="fixdate" />
                                         </td>
                                         <td>
                                             <textarea name="fixmemo" placeholder="備考欄：修理内容などをメモ"></textarea>
                                         </td>
+                                        <td>
+                                            <input class="btnDeleteFix" type="button" value="削除">
+                                        </td>
                                     </tr>
                                 </tbody>
-
                             </table>
+                            <!-- 修理情報を記載する行を追加するボタン -->
+                            <input type="button" value="↑入力↑" id="addBtnFixBike" />
 
                             <div class="form-check sec-reg-inner-form-check">
                                 <input type="submit" value="入力内容を確認する" />
