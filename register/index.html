@@ -139,25 +139,12 @@
                             <!--
                                 新車情報
                             -->
-
-                            <!-- 情報入力欄 -->
-                            <div class="sec-reg-inner-form-addinfo">
-                                <p class="bold sec-reg-inner-form-addinfo-contents">--新車購入情報記載フォーム--</p>
-                                <input type="button" value="行を追加" id="addBtn" 　 />
-                                <!-- <div class="sec-reg-inner-form-addinfo-input">
-                                    <input type="text" id="maker" placeholder="メーカー" />
-                                    <input type="text" id="products" placeholder="商品名" />
-                                    <input type="text" id="sizecolor" placeholder="サイズ・カラー" />
-                                    <input type="number" id="quantity" placeholder="数量" />
-                                    <input type="number" id="pricetaxex" placeholder="金額(税抜" />
-                                    <input type="button" id="add" value="add">
-                                </div> -->
-                            </div>
-
-                            <!-- 新車情報記載内容 -->
                             <table class="form-table new-bicycle sec-reg-inner-form-table">
 
                                 <caption class="bold">--新車購入情報内容--</caption>
+
+                                <!-- 行を追加するボタン -->
+                                <input type="button" value="行を追加" id="addBtnNewBike" />
 
                                 <thead>
                                     <tr>
@@ -195,29 +182,6 @@
                                     </tr>
                                 </tbody>
 
-
-                                <!-- <tr>
-                                    <td>2</td>
-                                    <td>
-                                        <input type="text" name="maker" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="products" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="text" name="sizecolor" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="quantity" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="pricetaxex" value="" />
-                                    </td>
-                                    <td>
-                                        <input type="number" name="pricetaxin" value="" />
-                                    </td>
-                                </tr> -->
-
                                 <tfoot>
                                     <tr class="sec-reg-inner-form-table-tot">
                                         <td class="sec-reg-inner-form-table-tot-txt bold" colspan="4">TOTAL</td>
@@ -243,31 +207,26 @@
 
                                 <caption class="bold">--修理情報--</caption>
 
-                                <tr>
-                                    <!-- <th class="smallth">No,</th> -->
-                                    <th class="midth">日付</th>
-                                    <th>修理内容・メモ</th>
-                                </tr>
+                                <!-- 行を追加するボタン -->
+                                <input type="button" value="行を追加" id="addBtnFixBike" />
 
-                                <tr>
-                                    <!-- <td>1</td> -->
-                                    <td>
-                                        <input type="date" name="fixdate" />
-                                    </td>
-                                    <td>
-                                        <textarea name="fixmemo" placeholder="備考欄：修理内容などをメモ"></textarea>
-                                    </td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th class="midth">日付</th>
+                                        <th>修理内容・メモ</th>
+                                    </tr>
+                                </thead>
 
-                                <tr>
-                                    <!-- <td>2</td> -->
-                                    <td>
-                                        <input type="date" name="fixdate" />
-                                    </td>
-                                    <td>
-                                        <textarea name="fixmemo" placeholder="備考欄：修理内容などをメモ"></textarea>
-                                    </td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="date" name="fixdate" />
+                                        </td>
+                                        <td>
+                                            <textarea name="fixmemo" placeholder="備考欄：修理内容などをメモ"></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
 
                             </table>
 

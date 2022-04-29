@@ -90,11 +90,16 @@
 .sec-reg {
     &-inner-form-table-tot td {
         text-align: end;
+        background: #ede4e1;
     }
 
     &-inner-form-table-tot-txt {
         padding-right: 20px;
     }
+
+    // &-inner-form-table-txt td:hover {
+    //     background: #FCC;
+    // }
 }
 
 .fix-bicycle {
