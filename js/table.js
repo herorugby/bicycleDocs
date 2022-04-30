@@ -1,4 +1,4 @@
-// ボタンクリックで行を追加
+// ボタンクリックで行を追加&削除
 $(function () {
 
     // 新車情報フォームの行追加
@@ -32,5 +32,17 @@ $(function () {
     $(".btnDeleteFix").on("click", function() {
     $(this).parent().parent().remove();
     });
-
 });
+
+// 合計金額の計算
+$(".new-bicycle").on('change keyup', '.taxEx', function () {
+       var calculated_total_sum = 0;
+
+       $(".new-bicycle .taxEx").each(function () {
+           var get_textbox_value = $(this).val();
+           if ($.isNumeric(get_textbox_value)) {
+              calculated_total_sum += parseFloat(get_textbox_value);
+              }
+            });
+              $(".sec-reg-inner-form-table-tot-totaltaxex").html("¥" + calculated_total_sum);
+       });
