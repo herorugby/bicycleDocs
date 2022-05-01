@@ -34,15 +34,24 @@ $(function () {
     });
 });
 
-// 合計金額の計算
+    // 合計金額の計算
 $(".new-bicycle").on('change keyup', '.taxEx', function () {
-       var calculated_total_sum = 0;
+    var calc_total_sum_taxex = 0;
+    var calc_sum_taxin = 0;
+    var calc_total_sum_taxin = 0;
 
-       $(".new-bicycle .taxEx").each(function () {
-           var get_textbox_value = $(this).val();
-           if ($.isNumeric(get_textbox_value)) {
-              calculated_total_sum += parseFloat(get_textbox_value);
-              }
-            });
-              $(".sec-reg-inner-form-table-tot-totaltaxex").html("¥" + calculated_total_sum);
-       });
+    $(".new-bicycle .taxEx").each(function () {
+        var get_txtbox_val = $(this).val();
+            if ($.isNumeric(get_txtbox_val)) {
+            // 税抜の足す計算
+            calc_total_sum_taxex += parseFloat(get_txtbox_val);
+            // 税込の計算
+            calc_sum_taxin += Math.round(get_txtbox_val * 1.1);
+            // 税込の合計計算
+            calc_total_sum_taxin = Math.round(calc_total_sum_taxex * 1.1);
+            }
+        });
+    $(".sec-reg-inner-form-table-tot-totaltaxex").html("¥" + calc_total_sum_taxex);
+    $(".taxInBox").html("¥" + calc_sum_taxin);
+    $(".sec-reg-inner-form-table-tot-totaltaxin").html("¥" + calc_total_sum_taxin);
+});
