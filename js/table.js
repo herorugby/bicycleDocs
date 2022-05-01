@@ -34,6 +34,10 @@ $(function () {
     });
 });
 
+// 各行の税込計算を入れたい
+// 税込金額を入れたら税抜金額も計算してほしい
+// 税抜の¥マークを入れたい
+
     // 合計金額の計算
 $(".new-bicycle").on('change keyup', '.taxEx', function () {
     var calc_total_sum_taxex = 0;
@@ -42,7 +46,8 @@ $(".new-bicycle").on('change keyup', '.taxEx', function () {
 
     $(".new-bicycle .taxEx").each(function () {
         var get_txtbox_val = $(this).val();
-            if ($.isNumeric(get_txtbox_val)) {
+        if ($.isNumeric(get_txtbox_val)) {
+            get_txtbox_val.replace(/^[0]+/,'');
             // 税抜の足す計算
             calc_total_sum_taxex += parseFloat(get_txtbox_val);
             // 税込の計算
