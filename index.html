@@ -32,7 +32,7 @@
         <main>
             <section id="section-welcome" class="sec-wel">
                 <div class="sec-wel-inner">
-                    <div class="sec-wel-inner-tit">
+                    <div class="inner-title sec-wel-inner-tit">
                         <h2>WELCOME!!! 〇〇</h2>
                     </div>
                     <div class="sec-wel-inner-sam">
@@ -43,41 +43,44 @@
 
             <section id="section-search" class="sec-sea">
                 <div class="sec-sea-inner">
-                    <div class="sec-sea-inner-tit">
-                        <h2>お客様のフリガナを入力し、検索をして下さい。</h2>
+                    <div class="sec-sea-inner-contents">
+                        <h3>お客様のフリガナを入力し、検索をして下さい。</h3>
                     </div>
-                    <div class="sec-sea-inner-form">
+                    <div class="form sec-sea-inner-form">
                         <form action="" method="post">
-                            <div class="sec-sea-inner-form">
-                                <dl>
-                                    <dt>フリガナ入力</dt>
-                                    <dd>
-                                        <input type="text" name="" id="">
-                                    </dd>
-                                </dl>
-                                <div class="sec-sea-inner-form-che">
-                                    <input type="submit" value="検索する">
+                            <div class="form-item sec-sea-inner-form-item">
+                                <label for="namae" class="form-item-label sec-sea-inner-form-item-label">フリガナ</label>
+                                <div class="form-item-input sec-sea-inner-form-item-input">
+                                    <input id="namae" type="text" name="namae" value="" placeholder="ヤマダ　ハナコ" required />
+                                    <!-- <p class="error">*お客様のお名前を入力して下さい。</p> -->
                                 </div>
+                            </div>
+                            <div class="sec-sea-inner-form-list">
+                                <p class="error">
+                                    お客様情報が見つかりませんでした。お客様情報一覧から検索も可能です。
+                                </p>
+                                <a href="list.html" class="tolist">お客様情報一覧へ</a>
+                            </div>
+                            <div class="button-a sec-sea-inner-form-check">
+                                <input type="submit" value="検索する" />
+                            </div>
                         </form>
-                        <div class="sec-sea-inner-form-list">
-                            <p class="error">
-                                お客様情報が見つかりませんでした。お客様情報一覧から検索も可能です。
-                            </p>
-                            <a href="list.html" class="tolist">お客様情報一覧へ</a>
-                        </div>
+
                     </div>
                 </div>
             </section>
 
-            <div id="section-customer-regist" class="se-cusreg">
-                <div class="sec-cusreg-inner">
-                    <a href="register/">お客様情報の新規登録</a>
+            <div class="flex-box">
+                <div id="section-customer-regist" class="sec-cusreg">
+                    <div class="button-a sec-cusreg-inner">
+                        <a href="register/">お客様情報の新規登録</a>
+                    </div>
                 </div>
-            </div>
 
-            <div id="section-logout" class="sec-out">
-                <div class="sec-out-inner">
-                    <a href="logout.html">ログアウト</a>
+                <div id="section-logout" class="sec-out">
+                    <div class="button-a sec-out-inner">
+                        <a href="logout.html">ログアウト</a>
+                    </div>
                 </div>
             </div>
         </main>

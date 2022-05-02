@@ -1,0 +1,33 @@
+.sec-wel,
+.sec-sea {
+    &-inner-tit {
+        margin-bottom: 25px;
+
+        h2 {
+            text-align: center;
+            font-size: 25px;
+        }
+    }
+
+    &-inner-contents {
+        font-size: 20px;
+    }
+
+    &-inner-form {
+        &-list {
+            margin-top: 20px;
+        }
+    }
+}
+
+.sec-cusreg {
+    &-inner {
+        background: #006eb0;
+    }
+}
+
+.sec-out {
+    &-inner {
+        background: #f09199;
+    }
+}
