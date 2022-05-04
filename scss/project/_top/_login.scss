@@ -1,0 +1,15 @@
+.sec-log {
+    &-inner{
+        &-contents {
+                font-size: 20px;
+        }
+        &-form {
+            &-item {
+                &-save {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

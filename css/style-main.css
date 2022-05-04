@@ -736,6 +736,10 @@ Text Formation
   padding-left: 1em;
 }
 
+.error {
+  color: red;
+}
+
 .text-vertical {
   -ms-writing-mode: tb-rl;
   /* IE用　*/
@@ -958,6 +962,17 @@ header .header-inner h1 {
 
 .sec-out-inner {
   background: #f09199;
+}
+
+.sec-log-inner-contents {
+  font-size: 20px;
+}
+.sec-log-inner-form-item-save {
+  width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .sec-per-tab-inner-form-table-new-tot td {
