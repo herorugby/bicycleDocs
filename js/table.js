@@ -14,7 +14,8 @@ $(function () {
     });
     // 新車情報行削除
     $(".btnDeleteNew").on("click", function() {
-    $(this).parent().parent().remove();
+        $(this).parent().parent().remove();
+        $('sec-reg-inner-form-table-tot-totaltaxex').remove();
     });
 
     // 修理自転車フォームの行追加
@@ -30,7 +31,7 @@ $(function () {
     });
     // 修理情報行削除
     $(".btnDeleteFix").on("click", function() {
-    $(this).parent().parent().remove();
+        $(this).parent().parent().remove();
     });
 });
 
