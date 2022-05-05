@@ -1,12 +1,21 @@
 .sec-per-tab {
-    &-inner-form-table-new {
-        &-tot td {
-            text-align: end;
-            background: #ede4e1;
-        }
-
-        &-txt td {
-            background: #fff;
+    &-inner {
+        &-form {
+            &-table {
+                &-new {
+                    &-tot {
+                        td {
+                            text-align: end;
+                            background: #ede4e1;
+                        }
+                    }
+                    &-txt {
+                        td {
+                            background: #fff;
+                        }
+                    }
+                }
+            }
         }
     }
 }

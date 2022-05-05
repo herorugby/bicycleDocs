@@ -1,10 +1,15 @@
 .sec-che {
-    &-inner-form-table-txt td {
-        background: #fff;
-    }
-
-    &-inner-form-table-tot td {
-        text-align: end;
-        background: #ede4e1;
+    &-inner {
+        &-form {
+            &-table {
+                &-txt td {
+                    background: #fff;
+                }
+                &-tot td {
+                    text-align: end;
+                    background: #ede4e1;
+                }
+            }
+        }
     }
 }

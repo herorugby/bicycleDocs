@@ -145,7 +145,7 @@ Flex
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 100px;
+    gap: 15px;
 }
 
 /* ----------------------------------------------------------------------
@@ -211,6 +211,10 @@ Text Formation
 
 .error {
     color: red;
+}
+
+.contents {
+    font-size: 20px;
 }
 
 .text-vertical {

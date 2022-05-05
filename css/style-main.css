@@ -697,7 +697,7 @@ Flex
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  gap: 100px;
+  gap: 15px;
 }
 
 /* ----------------------------------------------------------------------
@@ -738,6 +738,10 @@ Text Formation
 
 .error {
   color: red;
+}
+
+.contents {
+  font-size: 20px;
 }
 
 .text-vertical {
@@ -817,84 +821,6 @@ header .header-inner h1 {
   text-align: center;
 }
 
-.sec-che-inner-tit {
-  margin-bottom: 25px;
-}
-.sec-che-inner-tit h2 {
-  text-align: center;
-  font-size: 25px;
-}
-.sec-che-inner-contents {
-  font-size: 20px;
-}
-.sec-che-inner-form-rewrite {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 0 auto;
-  text-align: center;
-}
-.sec-che-inner-form-rewrite a, .sec-che-inner-form-rewrite input {
-  display: block;
-  width: 280px;
-  margin: 20px auto;
-  padding: 20px 0;
-  border-radius: 6px;
-  letter-spacing: 0.05em;
-  background: #5bc8ac;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-}
-
-.sec-reg-inner-tit {
-  margin-bottom: 25px;
-}
-.sec-reg-inner-tit h2 {
-  text-align: center;
-  font-size: 25px;
-}
-.sec-reg-inner-contents {
-  font-size: 20px;
-}
-.sec-reg-inner-change {
-  text-align: end;
-  font-size: 20px;
-}
-.sec-reg-inner-change a {
-  text-decoration: underline;
-}
-
-.sec-thanks-inner-tit {
-  margin-bottom: 25px;
-}
-.sec-thanks-inner-tit h2 {
-  text-align: center;
-  font-size: 25px;
-}
-.sec-thanks-inner-contents {
-  text-align: center;
-}
-.sec-thanks-inner-contents a {
-  display: block;
-  width: 280px;
-  margin: 20px auto;
-  padding: 20px 0;
-  border-radius: 6px;
-  letter-spacing: 0.05em;
-  background: #5bc8ac;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-}
-
 .sec-che-inner-form-table-txt td {
   background: #fff;
 }
@@ -938,35 +864,30 @@ header .header-inner h1 {
   text-align: center;
 }
 
-.sec-wel-inner-tit,
-.sec-sea-inner-tit {
-  margin-bottom: 25px;
-}
-.sec-wel-inner-tit h2,
-.sec-sea-inner-tit h2 {
-  text-align: center;
-  font-size: 25px;
-}
-.sec-wel-inner-contents,
-.sec-sea-inner-contents {
-  font-size: 20px;
-}
 .sec-wel-inner-form-list,
 .sec-sea-inner-form-list {
   margin-top: 20px;
 }
-
-.sec-cusreg-inner {
-  background: #006eb0;
+.sec-wel-inner-form-list .tolist,
+.sec-sea-inner-form-list .tolist {
+  text-decoration: underline;
 }
 
-.sec-out-inner {
+.sec-buts-cusreg .button-a {
+  background: #006eb0;
+}
+.sec-buts-out .button-a {
   background: #f09199;
 }
 
-.sec-log-inner-contents {
+.sec-cus-edit {
+  text-align: end;
   font-size: 20px;
 }
+.sec-cus-edit a {
+  text-decoration: underline;
+}
+
 .sec-log-inner-form-item-save {
   width: 100%;
   -webkit-box-pack: center;
