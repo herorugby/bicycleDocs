@@ -888,6 +888,13 @@ header .header-inner h1 {
   text-decoration: underline;
 }
 
+.sec-cus-reg-inner-jump {
+  text-align: center;
+}
+.sec-cus-reg-inner-jump a {
+  text-decoration: underline;
+}
+
 .sec-log-inner-form-item-save {
   width: 100%;
   -webkit-box-pack: center;
