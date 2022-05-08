@@ -128,20 +128,43 @@
 
 /* クリック領域 */
 .accordion-list {
+  position: relative;
   height: 50px;
   border-bottom: 1px solid #fff;
-  background-color: #f97148;
+  background-color: #ee7800;
   color: #fff;
   text-align: center;
   line-height: 50px;
-  cursor: pointer;
+}
+
+/* 擬似要素で下三角形を作成 */
+.accordion-list:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  right: 30px;
+  width: 10px;
+  height: 10px;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* オープン時にopenクラスを付与 */
+.accordion-list.open:after {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
 }
 
 /* クリックしたら表示される領域 */
 .accordion-item {
   display: none;
   padding: 2em 1em;
-  background-color: #ffccbc;
+  background-color: #f7b977;
   text-align: center;
 }
 
@@ -914,10 +937,22 @@ header .header-inner h1 {
   text-decoration: underline;
 }
 
+.sec-cho-inner-choo {
+  margin-bottom: 20px;
+}
+.sec-cho-inner-choo-contents {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sec-cus-reg-inner-tit {
+  margin-bottom: 10px;
+}
 .sec-cus-reg-inner-jump {
   text-align: center;
 }
 .sec-cus-reg-inner-jump a {
+  font-size: 20px;
   text-decoration: underline;
 }
 

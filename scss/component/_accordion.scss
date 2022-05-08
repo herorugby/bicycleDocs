@@ -7,19 +7,39 @@
 
 /* クリック領域 */
 .accordion-list {
+    position: relative;
     height: 50px;
     border-bottom: 1px solid #fff;
-    background-color: #f97148;
+    background-color: #ee7800;
     color: #fff;
     text-align: center;
     line-height: 50px;
-    cursor: pointer;
+}
+
+/* 擬似要素で下三角形を作成 */
+.accordion-list:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    right: 30px;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: translateY(-50%) rotate(45deg);
+    transition: .3s;
+}
+
+/* オープン時にopenクラスを付与 */
+.accordion-list.open:after {
+    transform: rotate(225deg);
 }
 
 /* クリックしたら表示される領域 */
 .accordion-item {
     display: none;
     padding: 2em 1em;
-    background-color: #ffccbc;
+    background-color: #f7b977;
     text-align: center;
 }
