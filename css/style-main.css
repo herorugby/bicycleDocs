@@ -119,6 +119,32 @@
   text-align: center;
 }
 
+/* アコーディオンメニュー全体のサイズ・位置 */
+.accordion {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* クリック領域 */
+.accordion-list {
+  height: 50px;
+  border-bottom: 1px solid #fff;
+  background-color: #f97148;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+/* クリックしたら表示される領域 */
+.accordion-item {
+  display: none;
+  padding: 2em 1em;
+  background-color: #ffccbc;
+  text-align: center;
+}
+
 /*! destyle.css v1.0.13 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 /* Reset box-model
    ========================================================================== */
