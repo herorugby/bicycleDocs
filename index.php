@@ -1,5 +1,60 @@
+<?php
+
+// セッションがあるかを判定してからスタートする
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+// アカウント重複確認をするためにdbに接続する
+require_once('dbconnect.php');
+
+// function関数のファイルを呼び出し
+require_once('myfunc.php');
+
+// ログイン時にセッションを保存し、idがある場合とセッションに保存した時間足す１時間の合計時間が現在時間より大きければログイン状態となる。現在時間が大きくなるとログアウト
+if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+    // 何かアクションを起こした時にセッションの時間を現在の時間に更新する
+    $_SESSION['time'] = time();
+
+    try {
+        // アカウントのidを取得する
+        $sql_select_id = "SELECT * FROM ";
+        $sql_select_id .= "members ";
+        $sql_select_id .= "WHERE ";
+        $sql_select_id .= "id=?";
+
+        // sql文の準備
+        $stmt_id = $dbh->prepare($sql_select_id);
+
+        // テーブルのメアド、パスのデータを指定
+        $stmt_id->bindValue(1, $_SESSION['id'], PDO::PARAM_INT);
+
+        // sql文の発行
+        $result_id = $stmt_id->execute();
+
+        // sql文が発行できたら条件分岐を実行
+        if ($result_id) {
+            // 取得データを連想配列で$memberに代入。
+            $member = $stmt_id->fetch(PDO::FETCH_ASSOC);
+            // 取得したデータの名前をエスケープで変数に格納
+            $nickname = h($member['name']);
+        }
+    } catch (PDOException $e) {
+        echo 'レコード確認エラー：' . $e->getMessage();
+        die();
+    }
+    // ログイン時のセッション等なければ
+} else {
+    header('Location: login.php');
+    die();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +72,7 @@
     <!-- style sheets -->
     <link rel="stylesheet" href="css/style-main.min.css">
 </head>
+
 <body>
     <div id="wrap">
 
@@ -101,4 +157,5 @@
 
     <script src="js/copyright.js"></script>
 </body>
+
 </html>
