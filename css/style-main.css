@@ -126,6 +126,10 @@
   margin: 0 auto;
 }
 
+.accordion ul {
+  display: none;
+}
+
 /* クリック領域 */
 .accordion-list {
   position: relative;
@@ -162,7 +166,6 @@
 
 /* クリックしたら表示される領域 */
 .accordion-item {
-  display: none;
   padding: 2em 1em;
   background-color: #f7b977;
   text-align: center;
