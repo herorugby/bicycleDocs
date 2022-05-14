@@ -7,8 +7,6 @@ require_once('dbinfo.php');
 $dsn = "mysql:dbname=$DBNM;host=$SERV;port=$PORT;charset=$CHAR";
 
 // data base handler
-$dbh = null;
-
 try {
     // ハンドラでdbと接続
     $dbh = new PDO($dsn, $USER, $PASS);
