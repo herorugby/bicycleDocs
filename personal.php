@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
     <!-- style sheets -->
     <link rel="stylesheet" href="css/style-main.min.css">
 </head>
+
 <body>
     <div id="wrap">
 
@@ -218,4 +220,5 @@
 
     <script src="js/copyright.js"></script>
 </body>
+
 </html>

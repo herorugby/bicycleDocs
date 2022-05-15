@@ -11,6 +11,7 @@ require_once('dbconnect.php');
 // function関数のファイルを呼び出し
 require_once('myfunc.php');
 
+// DataBaseに登録されているデータの取得
 // ログイン時にセッションを保存し、idがある場合とセッションに保存した時間足す１時間の合計時間が現在時間より大きければログイン状態となる。現在時間が大きくなるとログアウト
 if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     // 何かアクションを起こした時にセッションの時間を現在の時間に更新する
@@ -38,6 +39,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
             $member = $stmt_id->fetch(PDO::FETCH_ASSOC);
             // 取得したデータの名前をエスケープで変数に格納
             $nickname = h($member['name']);
+            $picture = h($member['picture']);
         }
     } catch (PDOException $e) {
         echo 'レコード確認エラー：' . $e->getMessage();
@@ -48,6 +50,9 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     header('Location: login.php');
     die();
 }
+
+// お客様データの取得
+
 
 
 ?>
@@ -89,7 +94,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
             <section id="section-welcome" class="sec-wel">
                 <div class="sec-wel-inner">
                     <div class="inner-title sec-wel-inner-tit">
-                        <h2>WELCOME!!! 〇〇</h2>
+                        <h2>WELCOME!!!<?php echo $nickname; ?>様</h2>
                     </div>
                     <div class="sec-wel-inner-sam">
                         <!-- <img src="member_picture/<?php echo h($post['picture']); ?>" width="48" height="48" alt="" /> -->
