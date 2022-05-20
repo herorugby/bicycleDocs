@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
     <!-- style sheets -->
     <link rel="stylesheet" href="../css/style-main.min.css">
 </head>
+
 <body>
     <div id="wrap">
 
@@ -37,7 +39,7 @@
                     </div>
                     <div class="sec-thanks-inner-contents ta-center">
                         <p class="contents">お客様情報の登録が完了しました。</p>
-                        <a class="button-a" href="../index.html">検索画面から確認する</a>
+                        <a class="button-a" href="../">検索画面から確認する</a>
                     </div>
                 </div>
             </section>
@@ -56,4 +58,5 @@
 
     <script src="../js/copyright.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,128 @@
+<?php
+// セッションがあるかを判定してからスタートする
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+// db接続するテンプレを呼び出し
+require_once('../dbconnect.php');
+
+// function関数のファイルを呼び出し
+require_once('../myfunc.php');
+
+if (!isset($_SESSION['join'])) {
+    header('Location: index.php');
+    die();
+}
+
+// dbテーブル内のdatetime取得のため変数を用意
+$date = new DateTime();
+$date = $date->format('Y-m-d H:i:s');
+
+/*
+------------------------------------
+登録ボタンを押したらデータをdbに挿入する
+------------------------------------
+*/
+if (!empty($_POST)) {
+    try {
+
+        /*
+        ------------------------------------
+        基本情報のデータ登録
+        ------------------------------------
+        */
+        // 挿入するsql文準備
+        $sql_insert_customer_info = "INSERT INTO ";
+        $sql_insert_customer_info .= "customers ";
+        $sql_insert_customer_info .= "(name, kana, tel, sell_phone, mail, address, regist_date, bicycle, body_number, crime_no, body_picture, created) ";
+        $sql_insert_customer_info .= "VALUES ";
+        $sql_insert_customer_info .= "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+
+        // sql文の準備
+        $stmt_insert_customer_info = $dbh->prepare($sql_insert_customer_info);
+
+        // 値の代入?を使う場合
+        $stmt_insert_customer_info->bindValue(1, $_SESSION['regist']['name'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(2, $_SESSION['regist']['kana'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(3, $_SESSION['regist']['tel'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(4, $_SESSION['regist']['sell_phone'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(5, $_SESSION['regist']['mail'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(6, $_SESSION['regist']['address'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(7, $_SESSION['regist']['regist_date'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(8, $_SESSION['regist']['bicycle'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(9, $_SESSION['regist']['body_number'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(10, $_SESSION['regist']['crime_no'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(11, $_SESSION['regist']['image'], PDO::PARAM_STR);
+        $stmt_insert_customer_info->bindValue(12, $date, PDO::PARAM_STR);
+
+
+        /*
+        ------------------------------------
+        新車情報のデータ登録
+        ------------------------------------
+        */
+        // 挿入するsql文準備
+        $sql_insert_newbicycle_info = "INSERT INTO ";
+        $sql_insert_newbicycle_info .= "new-bicycle ";
+        $sql_insert_newbicycle_info .= "(maker, products, size_color, quantity, amount_exclude, amount_include, total_amount_exc, total_amount_inc, memo, created) ";
+        $sql_insert_newbicycle_info .= "VALUES ";
+        $sql_insert_newbicycle_info .= "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+
+        // sql文の準備
+        $stmt_insert_newbicycle_info = $dbh->prepare($sql_insert_newbicycle_info);
+
+        // 値の代入?を使う場合
+        $stmt_insert_newbicycle_info->bindValue(1, $_SESSION['regist']['maker'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(2, $_SESSION['regist']['products'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(3, $_SESSION['regist']['size_color'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(4, $_SESSION['regist']['quantity'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(5, $_SESSION['regist']['amount_exclude'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(6, $_SESSION['regist']['amount_include'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(7, $_SESSION['regist']['total_amount_exc'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(8, $_SESSION['regist']['total_amount_inc'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(9, $_SESSION['regist']['memo'], PDO::PARAM_STR);
+        $stmt_insert_newbicycle_info->bindValue(10, $date, PDO::PARAM_STR);
+
+        // sql文の発行
+        $result_insert_newbicycle_info = $stmt_insert_newbicycle_info->execute();
+
+        /*
+        ------------------------------------
+        修理車情報のデータ登録
+        ------------------------------------
+        */
+        // 挿入するsql文準備
+        $sql_insert_fixbicycle_info = "INSERT INTO ";
+        $sql_insert_fixbicycle_info .= "fix-bicycle ";
+        $sql_insert_fixbicycle_info .= "(fix_date, memo, created) ";
+        $sql_insert_fixbicycle_info .= "VALUES ";
+        $sql_insert_fixbicycle_info .= "(?, ?, ?) ";
+
+        // sql文の準備
+        $stmt_insert_fixbicycle_info = $dbh->prepare($sql_insert_fixbicycle_info);
+
+        $stmt_insert_fixbicycle_info->bindValue(1, $_SESSION['regist']['fix_date'], PDO::PARAM_STR);
+        $stmt_insert_fixbicycle_info->bindValue(2, $_SESSION['regist']['memo'], PDO::PARAM_STR);
+        $stmt_insert_fixbicycle_info->bindValue(3, $date, PDO::PARAM_STR);
+
+        // db挿入したらsession変数を空にする命令
+        unset($_SESSION['regist']);
+
+        // db挿入ができたらthanks.phpにジャンプ
+        header('Location: thanks.php');
+        die();
+    } catch (PDOException $e) {
+        echo 'レコード挿入エラー：' . $e->getMessage();
+        die();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +140,7 @@
     <!-- style sheets -->
     <link rel="stylesheet" href="../css/style-main.min.css">
 </head>
+
 <body>
     <div id="wrap">
 
@@ -223,4 +347,5 @@
 
     <script src="../js/copyright.js"></script>
 </body>
+
 </html>
