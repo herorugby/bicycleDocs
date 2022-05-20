@@ -17,8 +17,8 @@ require_once('../myfunc.php');
 */
 // 名前の確認
 $name_input = '';
-if (isset($_POST['namae'])) {
-    $name_input = h($_POST['namae']);
+if (isset($_POST['name'])) {
+    $name_input = h($_POST['name']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['name'])) {
     $name_input = h($_SESSION['regist']['name']);
@@ -43,12 +43,12 @@ if (isset($_POST['tel'])) {
 }
 
 // 携帯番号の確認
-$sell_input = '';
-if (isset($_POST['sell'])) {
-    $sell_input = h($_POST['sell']);
+$sell_phone = '';
+if (isset($_POST['sell_phone'])) {
+    $sell_phone = h($_POST['sell_phone']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['sell_phone'])) {
-    $sell_input = h($_SESSION['regist']['sell_phone']);
+    $sell_phone = h($_SESSION['regist']['sell_phone']);
 }
 
 // メール
@@ -56,23 +56,32 @@ $email_input = '';
 if (isset($_POST['email'])) {
     $email_input = h($_POST['email']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
-} else if (isset($_SESSION['regist']['mail'])) {
-    $email_input = h($_SESSION['regist']['mail']);
+} else if (isset($_SESSION['regist']['email'])) {
+    $email_input = h($_SESSION['regist']['email']);
+}
+
+// 郵便番号
+$zipcode_input = '';
+if (isset($_POST['zipcode'])) {
+    $zipcode_input = h($_POST['zipcode']);
+    //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
+} else if (isset($_SESSION['regist']['zipcode'])) {
+    $zipcode_input = h($_SESSION['regist']['zipcode']);
 }
 
 // 住所
-$jusyo_input = '';
-if (isset($_POST['jusyo'])) {
-    $jusyo_input = h($_POST['jusyo']);
+$address_input = '';
+if (isset($_POST['address'])) {
+    $address_input = h($_POST['address']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['address'])) {
-    $jusyo_input = h($_SESSION['regist']['address']);
+    $address_input = h($_SESSION['regist']['address']);
 }
 
 // 来店日
 $date_input = '';
-if (isset($_POST['date'])) {
-    $date_input = h($_POST['date']);
+if (isset($_POST['regist_date'])) {
+    $date_input = h($_POST['regist_date']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['regist_date'])) {
     $date_input = h($_SESSION['regist']['regist_date']);
@@ -83,8 +92,8 @@ $body_input = '';
 if (isset($_POST['body'])) {
     $body_input = h($_POST['body']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
-} else if (isset($_SESSION['regist']['bicycle'])) {
-    $body_input = h($_SESSION['regist']['bicycle']);
+} else if (isset($_SESSION['regist']['body'])) {
+    $body_input = h($_SESSION['regist']['body']);
 }
 
 // 車体番号
@@ -92,17 +101,17 @@ $frameno_input = '';
 if (isset($_POST['frameno'])) {
     $frameno_input = h($_POST['frameno']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
-} else if (isset($_SESSION['regist']['body_number'])) {
-    $frameno_input = h($_SESSION['regist']['body_number']);
+} else if (isset($_SESSION['regist']['frameno'])) {
+    $frameno_input = h($_SESSION['regist']['frameno']);
 }
 
 // 防犯番号
-$registno_input = '';
-if (isset($_POST['registno'])) {
-    $registno_input = h($_POST['registno']);
+$crimeno_input = '';
+if (isset($_POST['crime_no'])) {
+    $crimeno_input = h($_POST['crime_no']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['crime_no'])) {
-    $registno_input = h($_SESSION['regist']['crime_no']);
+    $crimeno_input = h($_SESSION['regist']['crime_no']);
 }
 
 /*
@@ -129,12 +138,12 @@ if (isset($_POST['products'])) {
 }
 
 // サイズカラー
-$sizecolor_input = '';
-if (isset($_POST['sizecolor'])) {
-    $sizecolor_input = h($_POST['sizecolor']);
+$size_color_input = '';
+if (isset($_POST['size_color'])) {
+    $size_color_input = h($_POST['size_color']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['size_color'])) {
-    $sizecolor_input = h($_SESSION['regist']['size_color']);
+    $size_color_input = h($_SESSION['regist']['size_color']);
 }
 
 // 数量
@@ -147,48 +156,48 @@ if (isset($_POST['quantity'])) {
 }
 
 // 金額税抜
-$pricetaxex_input = '';
-if (isset($_POST['pricetaxex'])) {
-    $pricetaxex_input = h($_POST['pricetaxex']);
+$amount_exclude_input = '';
+if (isset($_POST['amount_exclude'])) {
+    $amount_exclude_input = h($_POST['amount_exclude']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['amount_exclude'])) {
-    $pricetaxex_input = h($_SESSION['regist']['amount_exclude']);
+    $amount_exclude_input = h($_SESSION['regist']['amount_exclude']);
 }
 
 // 金額税込
-$pricetaxin_input = '';
-if (isset($_POST['pricetaxin'])) {
-    $pricetaxin_input = h($_POST['pricetaxin']);
+$amount_include_input = '';
+if (isset($_POST['amount_include'])) {
+    $amount_include_input = h($_POST['amount_include']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['amount_include'])) {
-    $pricetaxin_input = h($_SESSION['regist']['amount_include']);
+    $amount_include_input = h($_SESSION['regist']['amount_include']);
 }
 
 // 合計金額税抜
-$totalpricetaxex_input = '';
-if (isset($_POST['totalpricetaxex'])) {
-    $totalpricetaxex_input = h($_POST['totalpricetaxex']);
+$total_amount_exc_input = '';
+if (isset($_POST['total_amount_exc'])) {
+    $total_amount_exc_input = h($_POST['total_amount_exc']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['total_amount_exc'])) {
-    $totalpricetaxex_input = h($_SESSION['regist']['total_amount_exc']);
+    $total_amount_exc_input = h($_SESSION['regist']['total_amount_exc']);
 }
 
 // 合計金額税込
-$totalpricetaxin_input = '';
-if (isset($_POST['totalpricetaxin'])) {
-    $totalpricetaxin_input = h($_POST['totalpricetaxin']);
+$total_amount_inc_input = '';
+if (isset($_POST['total_amount_inc'])) {
+    $total_amount_inc_input = h($_POST['total_amount_inc']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['total_amount_inc'])) {
-    $totalpricetaxin_input = h($_SESSION['regist']['total_amount_inc']);
+    $total_amount_inc_input = h($_SESSION['regist']['total_amount_inc']);
 }
 
 // 新車購入時メモ
-$memo_input = '';
-if (isset($_POST['memo'])) {
-    $memo_input = h($_POST['memo']);
+$newmemo_input = '';
+if (isset($_POST['newmemo'])) {
+    $newmemo_input = h($_POST['newmemo']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
-} else if (isset($_SESSION['regist']['memo'])) {
-    $memo_input = h($_SESSION['regist']['memo']);
+} else if (isset($_SESSION['regist']['newmemo'])) {
+    $newmemo_input = h($_SESSION['regist']['newmemo']);
 }
 
 /*
@@ -197,12 +206,12 @@ if (isset($_POST['memo'])) {
 ------------------------------------
 */
 // 日付
-$fixdate_input = '';
-if (isset($_POST['fixdate'])) {
-    $fixdate_input = h($_POST['fixdate']);
+$fix_date_input = '';
+if (isset($_POST['fix_date'])) {
+    $fix_date_input = h($_POST['fix_date']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
 } else if (isset($_SESSION['regist']['fix_date'])) {
-    $fixdate_input = h($_SESSION['regist']['fix_date']);
+    $fix_date_input = h($_SESSION['regist']['fix_date']);
 }
 
 // 修理内容メモ
@@ -210,8 +219,8 @@ $fixmemo_input = '';
 if (isset($_POST['fixmemo'])) {
     $fixmemo_input = h($_POST['fixmemo']);
     //check.phpから戻ってきたときにSESSION['regist']があればエスケープ処理を変数に代入
-} else if (isset($_SESSION['regist']['memo'])) {
-    $fixmemo_input = h($_SESSION['regist']['memo']);
+} else if (isset($_SESSION['regist']['fixmemo'])) {
+    $fixmemo_input = h($_SESSION['regist']['fixmemo']);
 }
 
 // ーーもし必須項目が空欄だったらの処理ーー
@@ -247,7 +256,7 @@ if (!empty($_POST)) {
         move_uploaded_file($_FILES['image']['tmp_name'], '../bicycle_pictures/' . $image);
         // エラーがなければregistにPOSTの内容を保存する。これでcheck.phpで値を参照できる
         $_SESSION['regist'] = $_POST;
-        $_SESSION['regist']['image'] = $image;
+        $_SESSION['regist']['body_picture'] = $image;
         header('Location: check.php');
         die();
     }
@@ -320,9 +329,9 @@ if (isset($_REQUEST['action'])) {
 
                             <!-- お名前 -->
                             <div class="form-item sec-reg-inner-form-item">
-                                <label for="namae" class="form-item-label sec-reg-inner-form-item-label">お名前(全角)<span class="required">必須</span></label>
+                                <label for="name" class="form-item-label sec-reg-inner-form-item-label">お名前(全角)<span class="required">必須</span></label>
                                 <div class="form-item-input sec-reg-inner-form-item-input">
-                                    <input id="namae" type="text" name="namae" value="<?php echo $namae_input; ?>" placeholder="山田　花子" required />
+                                    <input id="name" type="text" name="name" value="<?php echo $name_input; ?>" placeholder="山田　花子" required />
                                     <!-- <p class="error">*お客様のお名前を入力して下さい。</p> -->
                                 </div>
                             </div>
@@ -346,9 +355,9 @@ if (isset($_REQUEST['action'])) {
 
                             <!-- 携帯電話 -->
                             <div class="form-item sec-reg-inner-form-item">
-                                <label for="sell" class="form-item-label sec-reg-inner-form-item-label">携帯(半角)</label>
+                                <label for="sell_phone" class="form-item-label sec-reg-inner-form-item-label">携帯(半角)</label>
                                 <div class="form-item-input sec-reg-inner-form-item-input">
-                                    <input id="sel" type="tel" name="sell" value="<?php echo $sell_input; ?>" placeholder="012-3456-7890" />
+                                    <input id="sell_phone" type="tel" name="sell_phone" value="<?php echo $sell_phone; ?>" placeholder="012-3456-7890" />
                                 </div>
                             </div>
 
@@ -360,20 +369,28 @@ if (isset($_REQUEST['action'])) {
                                 </div>
                             </div>
 
+                            <!-- ご住所 -->
+                            <!-- 郵便番号 -->
+                            <div class="form-item sec-reg-inner-form-item">
+                                <label for="zipcode" class="form-item-label sec-reg-inner-form-item-label">郵便場号(半角)</label>
+                                <div class="form-item-input sec-reg-inner-form-item-input">
+                                    <input id="zipcode" class="fwnormal" type="text" name="zipcode" onKeyUp="AjaxZip3.zip2addr(zipcode,'','address','address');" value="<?php echo $zipcode_input; ?>" placeholder="1234567" />
+                                </div>
+                            </div>
+
                             <!-- 住所 -->
                             <div class="form-item sec-reg-inner-form-item">
-                                <label for="jusyo" class="form-item-label sec-reg-inner-form-item-label">ご住所</label>
+                                <label for="address" class="form-item-label sec-reg-inner-form-item-label">住所</label>
                                 <div class="form-item-input sec-reg-inner-form-item-input">
-                                    <p class="bold">郵便番号(半角)<input id="jusyo" class="fwnormal" type="text" name="郵便番号" onKeyUp="AjaxZip3.zip2addr(this,'','住所','住所');" placeholder="1234567" /></p>
-                                    <p class="bold">ご住所<input id="jusyo" class="fwnormal" type="text" name="住所" value="<?php echo $jusyo_input; ?>" placeholder="自動入力されます。" /></p>
+                                    <input id="address" class="fwnormal" type="text" name="address" value="<?php echo $address_input; ?>" placeholder="自動入力されます。" />
                                 </div>
                             </div>
 
                             <!-- ご来店日 -->
                             <div class="form-item sec-reg-inner-form-item">
-                                <label for="date" class="form-item-label sec-reg-inner-form-item-label">初回ご来店日</label>
+                                <label for="regist_date" class="form-item-label sec-reg-inner-form-item-label">初回ご来店日</label>
                                 <div class="form-item-input sec-reg-inner-form-item-input">
-                                    <input id="date" type="date" name="date" value="<?php echo $date_input; ?>" />
+                                    <input id="regist_date" type="date" name="regist_date" value="<?php echo $date_input; ?>" />
                                 </div>
                             </div>
 
@@ -395,19 +412,19 @@ if (isset($_REQUEST['action'])) {
 
                             <!-- 防犯No, -->
                             <div class="form-item sec-reg-inner-form-item">
-                                <label for="registno" class="form-item-label sec-reg-inner-form-item-label">防犯登録番号</label>
+                                <label for="crime_no" class="form-item-label sec-reg-inner-form-item-label">防犯登録番号</label>
                                 <div class="form-item-input sec-reg-inner-form-item-input">
-                                    <input id="registno" type="text" name="registno" value="<?php echo $registno_input; ?>" placeholder="L-001234" />
+                                    <input id="crime_no" type="text" name="crime_no" value="<?php echo $crimeno_input; ?>" placeholder="L-001234" />
                                 </div>
                             </div>
 
                             <!-- サムネイル -->
                             <div class="form-item sec-reg-inner-form-item">
-                                <label for="image" class="form-item-label sec-reg-inner-form-item-label">車体写真<br>※拡張子は.jpgもしくは.png</label>
+                                <label for="body_picture" class="form-item-label sec-reg-inner-form-item-label">車体写真<br>※拡張子は.jpgもしくは.png</label>
                                 <div class="form-item-input sec-reg-inner-form-item-input">
-                                    <input id="image" type="file" name="image" value="test" />
+                                    <input id="body_picture" type="file" name="body_picture" value="test" />
                                     <?php
-                                    if (isset($error['image']) && $error['image'] === 'type') {
+                                    if (isset($error['body_picture']) && $error['body_picture'] === 'type') {
                                         echo '<p class="error">*写真の拡張子は、.jpg/.gif/.pngとなります。</p>';
                                     }
                                     // フォーム内にerrorがあれば下のエラーを表示する
@@ -449,16 +466,16 @@ if (isset($_REQUEST['action'])) {
                                             <input type="text" name="products" value="<?php echo $products_input; ?>" />
                                         </td>
                                         <td>
-                                            <input type="text" name="sizecolor" value="<?php echo $sizecolor_input; ?>" />
+                                            <input type="text" name="size_color" value="<?php echo $size_color_input; ?>" />
                                         </td>
                                         <td>
                                             <input type="number" name="quantity" value="<?php echo $quantity_input; ?>" />
                                         </td>
                                         <td>
-                                            <input class="taxEx" type="number" name="pricetaxex" value="<?php echo $pricetaxex_input; ?>" />
+                                            <input class="taxEx" type="number" name="amount_exclude" value="<?php echo $amount_exclude_input; ?>" />
                                         </td>
                                         <td class="taxInBox">
-                                            <input class="taxIn" type="number" name="pricetaxin" value="<?php echo $pricetaxin_input; ?>" />
+                                            <input class="taxIn" type="number" name="amount_include" value="<?php echo $amount_include_input; ?>" />
                                         </td>
                                     </tr>
                                 </tbody>
@@ -467,15 +484,15 @@ if (isset($_REQUEST['action'])) {
                                     <tr class="sec-reg-inner-form-table-tot">
                                         <td class="sec-reg-inner-form-table-tot-txt bold" colspan="5">TOTAL</td>
                                         <td class="sec-reg-inner-form-table-tot-totaltaxex">
-                                            <input class="totalTaxEx" type="number" name="totalpricetaxex" value="<?php echo $totalpricetaxex_input; ?>" />
+                                            <input class="totalTaxEx" type="number" name="total_amount_exc" value="<?php echo $total_amount_exc_input; ?>" />
                                         </td>
                                         <td class="sec-reg-inner-form-table-tot-totaltaxin">
-                                            <input class="totalTaxIx" type="number" name="totalpricetaxin" value="<?php echo $totalpricetaxin_input; ?>" />
+                                            <input class="totalTaxIx" type="number" name="total_amount_inc" value="<?php echo $total_amount_inc_input; ?>" />
                                         </td>
                                     </tr>
                                     <tr class="sec-reg-inner-form-table-txt">
                                         <td colspan="7">
-                                            <textarea name="memo" 　value="<?php echo $memo_input; ?>" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"></textarea>
+                                            <textarea name="newmemo" value="<?php echo $newmemo_input; ?>" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"></textarea>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -504,7 +521,7 @@ if (isset($_REQUEST['action'])) {
                                             <input class="btnDeleteFix" type="button" value="削除">
                                         </td>
                                         <td>
-                                            <input type="date" name="fixdate" value="<?php echo $fixdate_input; ?>" />
+                                            <input type="date" name="fix_date" value="<?php echo $fix_date_input; ?>" />
                                         </td>
                                         <td>
                                             <textarea name="fixmemo" value="<?php echo $fixmemo_input; ?>" placeholder="備考欄：修理内容などをメモ"></textarea>

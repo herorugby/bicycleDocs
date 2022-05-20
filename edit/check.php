@@ -1,126 +1,3 @@
-<?php
-// セッションがあるかを判定してからスタートする
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-// db接続するテンプレを呼び出し
-require_once('../dbconnect.php');
-
-// function関数のファイルを呼び出し
-require_once('../myfunc.php');
-
-if (!isset($_SESSION['regist'])) {
-    header('Location: index.php');
-    die();
-}
-
-// dbテーブル内のdatetime取得のため変数を用意
-$date = new DateTime();
-$date = $date->format('Y-m-d H:i:s');
-
-/*
-------------------------------------
-登録ボタンを押したらデータをdbに挿入する
-------------------------------------
-*/
-if (!empty($_POST)) {
-    try {
-
-        /*
-        ------------------------------------
-        基本情報のデータ登録
-        ------------------------------------
-        */
-        // 挿入するsql文準備
-        $sql_insert_customer_info = "INSERT INTO ";
-        $sql_insert_customer_info .= "customers ";
-        $sql_insert_customer_info .= "(name, kana, tel, sell_phone, mail, zipcode, address, regist_date, bicycle, body_number, crime_no, body_picture, created) ";
-        $sql_insert_customer_info .= "VALUES ";
-        $sql_insert_customer_info .= "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-
-        // sql文の準備
-        $stmt_insert_customer_info = $dbh->prepare($sql_insert_customer_info);
-
-        // 値の代入?を使う場合
-        $stmt_insert_customer_info->bindValue(1, $_SESSION['regist']['name'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(2, $_SESSION['regist']['kana'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(3, $_SESSION['regist']['tel'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(4, $_SESSION['regist']['sell_phone'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(5, $_SESSION['regist']['email'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(6, $_SESSION['regist']['zipcode'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(7, $_SESSION['regist']['address'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(8, $_SESSION['regist']['regist_date'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(9, $_SESSION['regist']['body'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(10, $_SESSION['regist']['frameno'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(11, $_SESSION['regist']['crime_no'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(12, $_SESSION['regist']['body_picture'], PDO::PARAM_STR);
-        $stmt_insert_customer_info->bindValue(13, $date, PDO::PARAM_STR);
-
-
-        /*
-        ------------------------------------
-        新車情報のデータ登録
-        ------------------------------------
-        */
-        // 挿入するsql文準備
-        $sql_insert_newbicycle_info = "INSERT INTO ";
-        $sql_insert_newbicycle_info .= "new-bicycle ";
-        $sql_insert_newbicycle_info .= "(maker, products, size_color, quantity, amount_exclude, amount_include, total_amount_exc, total_amount_inc, memo, created) ";
-        $sql_insert_newbicycle_info .= "VALUES ";
-        $sql_insert_newbicycle_info .= "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-
-        // sql文の準備
-        $stmt_insert_newbicycle_info = $dbh->prepare($sql_insert_newbicycle_info);
-
-        // 値の代入?を使う場合
-        $stmt_insert_newbicycle_info->bindValue(1, $_SESSION['regist']['maker'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(2, $_SESSION['regist']['products'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(3, $_SESSION['regist']['size_color'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(4, $_SESSION['regist']['quantity'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(5, $_SESSION['regist']['amount_exclude'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(6, $_SESSION['regist']['amount_include'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(7, $_SESSION['regist']['total_amount_exc'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(8, $_SESSION['regist']['total_amount_inc'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(9, $_SESSION['regist']['newmemo'], PDO::PARAM_STR);
-        $stmt_insert_newbicycle_info->bindValue(10, $date, PDO::PARAM_STR);
-
-        // sql文の発行
-        $result_insert_newbicycle_info = $stmt_insert_newbicycle_info->execute();
-
-        /*
-        ------------------------------------
-        修理車情報のデータ登録
-        ------------------------------------
-        */
-        // 挿入するsql文準備
-        $sql_insert_fixbicycle_info = "INSERT INTO ";
-        $sql_insert_fixbicycle_info .= "fix-bicycle ";
-        $sql_insert_fixbicycle_info .= "(fix_date, memo, created) ";
-        $sql_insert_fixbicycle_info .= "VALUES ";
-        $sql_insert_fixbicycle_info .= "(?, ?, ?) ";
-
-        // sql文の準備
-        $stmt_insert_fixbicycle_info = $dbh->prepare($sql_insert_fixbicycle_info);
-
-        $stmt_insert_fixbicycle_info->bindValue(1, $_SESSION['regist']['fix_date'], PDO::PARAM_STR);
-        $stmt_insert_fixbicycle_info->bindValue(2, $_SESSION['regist']['fixmemo'], PDO::PARAM_STR);
-        $stmt_insert_fixbicycle_info->bindValue(3, $date, PDO::PARAM_STR);
-
-        // db挿入したらsession変数を空にする命令
-        unset($_SESSION['regist']);
-
-        // db挿入ができたらthanks.phpにジャンプ
-        header('Location: thanks.php');
-        die();
-    } catch (PDOException $e) {
-        echo 'レコード挿入エラー：' . $e->getMessage();
-        die();
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -175,7 +52,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">お名前</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['name']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -183,7 +60,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">フリガナ</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['kana']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -191,7 +68,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">Tel</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['tel']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -199,7 +76,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">携帯番号</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['sell_phone']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -207,15 +84,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">メールアドレス</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['email']); ?></p>
-                                </div>
-                            </div>
-
-                            <!-- 郵便番号 -->
-                            <div class="form-item sec-che-inner-form-item">
-                                <label class="form-item-label sec-che-inner-form-item-label">郵便番号</label>
-                                <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['zipcode']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -223,7 +92,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">ご住所</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['address']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -231,7 +100,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">初回ご来店日</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['regist_date']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -239,7 +108,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">登録車種</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['body']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -247,7 +116,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">車体番号</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['frameno']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -255,7 +124,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">防犯登録番号</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <p><?php echo h($_SESSION['regist']['crime_no']); ?></p>
+                                    <p>入力内容を表示する</p>
                                 </div>
                             </div>
 
@@ -263,11 +132,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-che-inner-form-item">
                                 <label class="form-item-label sec-che-inner-form-item-label">車体写真</label>
                                 <div class="form-item-input sec-che-inner-form-item-input">
-                                    <?php
-                                    if ($_SESSION['regist']['body_picture'] != '') {
-                                        echo '<img src="../bicycle_pictures/' . h($_SESSION['regist']['body_picture']) . '" alt="車体写真">';
-                                    }
-                                    ?>
+                                    <img src="" alt="車体写真">
                                 </div>
                             </div>
 
@@ -291,24 +156,24 @@ if (!empty($_POST)) {
 
                                 <tbody>
                                     <tr>
-                                        <td><?php echo h($_SESSION['regist']['maker']); ?></td>
-                                        <td><?php echo h($_SESSION['regist']['products']); ?></td>
-                                        <td><?php echo h($_SESSION['regist']['size_color']); ?></td>
-                                        <td><?php echo h($_SESSION['regist']['quantity']); ?></td>
-                                        <td><?php echo h($_SESSION['regist']['amount_exclude']); ?></td>
-                                        <td><?php echo h($_SESSION['regist']['amount_include']); ?></td>
+                                        <td>メーカー表示</td>
+                                        <td>商品名表示</td>
+                                        <td>サイズ・カラー表示</td>
+                                        <td>数量表示</td>
+                                        <td>金額(税抜)表示</td>
+                                        <td>金額(税込)表示</td>
                                     </tr>
                                 </tbody>
 
                                 <tfoot>
                                     <tr class="sec-che-inner-form-table-tot">
                                         <td class="sec-che-inner-form-table-tot-txt bold" colspan="4">TOTAL</td>
-                                        <td class="sec-che-inner-form-table-tot-totaltaxex">¥<?php echo h($_SESSION['regist']['total_amount_exc']); ?></td>
-                                        <td class="sec-che-inner-form-table-tot-totaltaxin">¥<?php echo h($_SESSION['regist']['total_amount_inc']); ?></td>
+                                        <td class="sec-che-inner-form-table-tot-totaltaxex">¥</td>
+                                        <td class="sec-che-inner-form-table-tot-totaltaxin">¥</td>
                                     </tr>
                                     <tr class="sec-che-inner-form-table-txt">
                                         <td colspan="6">
-                                            <?php echo h($_SESSION['regist']['newmemo']); ?>
+                                            入力内容を表示
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -331,14 +196,14 @@ if (!empty($_POST)) {
 
                                 <tbody>
                                     <tr>
-                                        <td><?php echo h($_SESSION['regist']['fix_date']); ?></td>
-                                        <td><?php echo h($_SESSION['regist']['fixmemo']); ?></td>
+                                        <td>日付の選択日を表示</td>
+                                        <td>修理内容を表示</td>
                                     </tr>
                                 </tbody>
                             </table>
 
                             <div class="sec-che-inner-form-rewrite flex-box">
-                                <a class="button-a" href="index.php?action=rewrite">書き直す</a>
+                                <a class="button-a" href="">書き直す</a>
                                 <input class="button-a" type="submit" value="登録する" />
                             </div>
                         </form>
