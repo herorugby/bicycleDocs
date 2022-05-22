@@ -492,7 +492,7 @@ if (isset($_REQUEST['action'])) {
                                     </tr>
                                     <tr class="sec-reg-inner-form-table-txt">
                                         <td colspan="7">
-                                            <textarea name="newmemo" value="<?php echo $newmemo_input; ?>" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"></textarea>
+                                            <textarea name="newmemo" placeholder="備考欄：組み立て方法などを詳細などをメモしておく"><?php echo $newmemo_input; ?></textarea>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -524,7 +524,7 @@ if (isset($_REQUEST['action'])) {
                                             <input type="date" name="fix_date" value="<?php echo $fix_date_input; ?>" />
                                         </td>
                                         <td>
-                                            <textarea name="fixmemo" value="<?php echo $fixmemo_input; ?>" placeholder="備考欄：修理内容などをメモ"></textarea>
+                                            <textarea name="fixmemo" placeholder="備考欄：修理内容などをメモ"><?php echo $fixmemo_input; ?></textarea>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -552,7 +552,7 @@ if (isset($_REQUEST['action'])) {
         <!-- END footer -->
     </div>
 
-    <script src="../js/table.js"></script>
+    <!-- <script src="../js/table.js"></script> -->
     <script src="../js/copyright.js"></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </body>

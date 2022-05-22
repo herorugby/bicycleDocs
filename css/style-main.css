@@ -98,9 +98,6 @@
   text-align: start;
   resize: vertical;
 }
-.form-table .addForm {
-  display: none;
-}
 .form-table input {
   width: 100%;
 }
@@ -875,10 +872,14 @@ header .header-inner h1 {
 
 .sec-che-inner-form-table-txt td {
   background: #fff;
+  text-align: left;
 }
 .sec-che-inner-form-table-tot td {
   text-align: end;
   background: #ede4e1;
+}
+.sec-che-inner-form-table-fixinfo td:last-child {
+  text-align: left;
 }
 
 .sec-reg-inner-form-table-txt td {

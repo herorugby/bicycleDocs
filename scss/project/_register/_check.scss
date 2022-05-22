@@ -4,10 +4,14 @@
             &-table {
                 &-txt td {
                     background: #fff;
+                    text-align: left;
                 }
                 &-tot td {
                     text-align: end;
                     background: #ede4e1;
+                }
+                &-fixinfo td:last-child {
+                    text-align: left;
                 }
             }
         }

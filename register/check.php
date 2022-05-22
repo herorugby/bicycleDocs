@@ -330,7 +330,7 @@ if (!empty($_POST)) {
                                 </thead>
 
                                 <tbody>
-                                    <tr>
+                                    <tr class="sec-che-inner-form-table-fixinfo">
                                         <td><?php echo h($_SESSION['regist']['fix_date']); ?></td>
                                         <td><?php echo h($_SESSION['regist']['fixmemo']); ?></td>
                                     </tr>

@@ -20,7 +20,7 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     try {
         // アカウントのidを取得する
         $sql_select_id = "SELECT * FROM ";
-        $sql_select_id .= "members ";
+        $sql_select_id .= "account ";
         $sql_select_id .= "WHERE ";
         $sql_select_id .= "id=?";
 
@@ -51,12 +51,54 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     die();
 }
 
-// 検索の確認
+/*
+お客様情報検索
+*/
+// input情報の初期化
+$name_input = '';
 
-// お客様データの取得
-// 検索した名前と同じふりがながあればデータを抽出してデータがあればpersonal.phpにジャンプするように
-// なければそのページ内でデータなしと表示する。
+// 検索欄の値を初期化した変数に代入
+if (isset($_POST['name'])) {
+    $name_input = h($_POST['name']);
+}
 
+// 入力した値が挿入されていれば条件分岐がスタート
+if (!empty($_POST)) {
+    $name_input = '%' . $name_input . '%';
+    try {
+        // メアド、パスを取得するsql
+        $sql = "SELECT * FROM ";
+        $sql .= "customers ";
+        $sql .= "WHERE ";
+        $sql .= "kana=? ";
+        $sql .= "LIKE ";
+        $sql .= ":name_input ";
+
+        // sql文の準備
+        $stmt = $dbh->prepare($sql);
+
+        // テーブルのメアド、パスのデータを指定
+        $stmt->bindValue(1, $_POST['name'], PDO::PARAM_STR);
+
+        // sql文の発行
+        $result = $stmt->execute();
+
+        // sql文が発行できたら条件分岐を実行
+        if ($result) {
+            // 取得データを連想配列で$customerに代入。
+            $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            // $customerにデータがなければ検索失敗
+            $error['serach'] = 'failed';
+        }
+    } catch (PDOException $e) {
+        echo 'レコード確認エラー：' . $e->getMessage();
+        die();
+    }
+} else {
+    // 入力されている情報がなければエラー文を走らせる文を実行
+    $error['search'] = 'blank';
+}
 
 ?>
 
@@ -113,17 +155,23 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                     <div class="form sec-sea-inner-form">
                         <form action="" method="post">
                             <div class="form-item sec-sea-inner-form-item">
-                                <label for="namae" class="form-item-label sec-sea-inner-form-item-label">フリガナ</label>
+                                <label for="name" class="form-item-label sec-sea-inner-form-item-label">フリガナ</label>
                                 <div class="form-item-input sec-sea-inner-form-item-input">
-                                    <input id="namae" type="text" name="namae" value="" placeholder="ヤマダ　ハナコ" required />
-                                    <!-- <p class="error">*お客様のお名前を入力して下さい。</p> -->
+                                    <input id="name" type="text" name="name" value="<?php $name_input ?>" placeholder="ヤマダ　ハナコ" required />
+                                    <?php
+                                    if (isset($error['search']) && $error['search'] === 'blank') {
+                                        echo '<p class="error ta-center">*お客様のお名前をフリガナで入力して下さい。</p>';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="sec-sea-inner-form-list">
-                                <p class="error">
-                                    お客様情報が見つかりませんでした。お客様情報一覧から検索も可能です。
-                                </p>
-                                <a href="list.html" class="tolist">お客様情報一覧へ</a>
+                                <?php
+                                if (isset($error['search']) && $error['search'] === 'failed') {
+                                    echo '<p class="error ta-center">お客様情報が見つかりませんでした。お客様情報一覧から検索も可能です。</p>';
+                                }
+                                ?>
+                                <a href="list.php" class="tolist">お客様情報一覧へ</a>
                             </div>
                             <div class="button-a sec-sea-inner-form-check">
                                 <input type="submit" value="検索する" />
@@ -131,6 +179,20 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
                         </form>
 
                     </div>
+                    <?php
+                    // $customerにデータが条件開始
+                    if ($customer) :
+                        foreach ($customer as $row) :
+                    ?>
+                            <ul>
+                                <li>
+                                    <?php echo $row['kana']; ?>
+                                </li>
+                            </ul>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </div>
             </section>
 
