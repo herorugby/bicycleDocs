@@ -1,5 +1,58 @@
+<?php
+// セッションがあるかを判定してからスタートする
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+// アカウント重複確認をするためにdbに接続する
+require_once('dbconnect.php');
+
+// function関数のファイルを呼び出し
+require_once('myfunc.php');
+
+// お客様データの取得
+try {
+    // フリガナのデータを取得するsql
+    $sql_all_list = "SELECT * FROM ";
+    $sql_all_list .= "customers ";
+    // $sql_all_list .= "WHERE ";
+    // $sql_all_list .= "kana ";
+    // $sql_all_list .= "REGEXP ";
+    // $sql_all_list .= "^ア|^ｱ ";
+
+    // sql文の準備
+    $stmt_all_lists = $dbh->prepare($sql_all_list);
+
+    // sql文の発行
+    $result_all_lists = $stmt_all_lists->execute();
+
+    // // foreach文で配列の中身を一行ずつ出力
+    // foreach ($stmt_all_lists as $row) {
+
+    //     // データベースのフィールド名で出力
+    //     echo $row['kana'];
+
+    //     // 改行を入れる
+    //     echo '<br>';
+    // }
+
+    // sql文が発行できたら条件分岐を実行
+    if ($result_all_lists) {
+        // 取得データを連想配列で$customer_all_listsに代入。
+        $customer_all_lists = $stmt_all_lists->fetch(PDO::FETCH_ASSOC);
+    } else {
+        // $customer_all_listsにデータがなければデータ取得失敗
+        $error['list'] = 'failed';
+    }
+} catch (PDOException $e) {
+    echo 'レコード確認エラー：' . $e->getMessage();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +70,7 @@
     <!-- style sheets -->
     <link rel="stylesheet" href="css/style-main.min.css">
 </head>
+
 <body>
     <div id="wrap">
 
@@ -40,86 +94,151 @@
                             <p>該当のフリガナを選択して下さい。</p>
                         </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">ア行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                        <!-- お客様データを出力。配列用のforeach -->
+                        <?php
+                        if ($customer_all_lists) :
+                            foreach ($stmt_all_lists as $list_value) :
+                        ?>
+                                <div class="accordion sec-cho-inner-choo-ac">
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">カ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">ア行</p>
+                                    <?php
+                                    if ($a_lists = preg_grep('!オ!', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($a_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">サ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">カ行</p>
+                                    <?php
+                                    if ($ka_lists = preg_grep('^カ|^ｶ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ka_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">タ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">サ行</p>
+                                    <?php
+                                    if ($sa_lists = preg_grep('^サ|^ｻ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($sa_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">ナ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">タ行</p>
+                                    <?php
+                                    if ($ta_lists = preg_grep('^タ|^ﾀ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ta_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">ハ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">ナ行</p>
+                                    <?php
+                                    if ($na_lists = preg_grep('^ナ|^ﾅ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($na_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">マ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">ハ行</p>
+                                    <?php
+                                    if ($ha_lists = preg_grep('^ハ|^ﾊ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ha_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">ヤ・ラ・ワ行</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">マ行</p>
+                                    <?php
+                                    if ($ma_lists = preg_grep('^マ|^ﾏ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ma_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
 
-                        <div class="accordion sec-cho-inner-choo-ac">
-                            <p class="accordion-list sec-cho-inner-choo-ac-list">その他</p>
-                            <ul>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
-                                <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
-                            </ul>
-                        </div>
+                                <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">ヤ・ラ・ワ行</p>
+                                    <?php
+                                    if ($yarawa_lists = preg_grep('^ヤ|^ﾔ|^ラ|^ﾗ|^ワ|^ﾜ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($yarawa_lists); ?></li>
+                                            <!-- <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li> -->
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div>
+
+                                <!-- <div class="accordion sec-cho-inner-choo-ac">
+                                    <p class="accordion-list sec-cho-inner-choo-ac-list">その他</p>
+                                    <?php
+                                    if ($other_lists = preg_grep('^ア|^ｱ', $list_value)) :
+                                    ?>
+                                        <ul>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($other_lists); ?></li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ2</li>
+                                            <li class="accordion-item sec-cho-inner-choo-ac-item">それぞれ3</li>
+                                        </ul>
+                                    <?php
+                                    endif;
+                                    ?>
+                                </div> -->
+
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
                     </div>
                 </div>
             </section>
@@ -151,4 +270,5 @@
     <script src="js/copyright.js"></script>
 
 </body>
+
 </html>
