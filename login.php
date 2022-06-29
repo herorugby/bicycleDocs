@@ -41,15 +41,15 @@ if (!empty($_POST)) {
             $sql .= "account ";
             $sql .= "WHERE ";
             $sql .= "email=? ";
-            $sql .= "AND ";
-            $sql .= "password=? ";
+            // $sql .= "AND ";
+            // $sql .= "password=? ";
 
             // sql文の準備
             $stmt = $dbh->prepare($sql);
 
             // テーブルのメアド、パスのデータを指定
             $stmt->bindValue(1, $_POST['email'], PDO::PARAM_STR);
-            $stmt->bindValue(2, $_POST['password'], PDO::PARAM_STR);
+            // $stmt->bindValue(2, $_POST['password'], PDO::PARAM_STR);
 
             // sql文の発行
             $result = $stmt->execute();
@@ -60,10 +60,13 @@ if (!empty($_POST)) {
                 $member = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 // $memberにデータがあればログイン成功
-                if ($member) {
+                if ($member && password_verify($_POST['password'], $member['password'])) {
                     // ログインに成功した情報をセッションに保存。$memberの配列にあるidをsession idに保存
                     $_SESSION['id'] = $member['id'];
                     $_SESSION['time'] = time();
+
+                    // ハッシュ化したパスワードと入力したパスワード検証する。
+                    // password_verify($password_input, $member['password']);
 
                     // メアドをクッキーに保存する設定
                     if ($_POST['save'] === 'on') {

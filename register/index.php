@@ -483,11 +483,11 @@ if (isset($_REQUEST['action'])) {
                                 <tfoot>
                                     <tr class="sec-reg-inner-form-table-tot">
                                         <td class="sec-reg-inner-form-table-tot-txt bold" colspan="5">TOTAL</td>
-                                        <td class="sec-reg-inner-form-table-tot-totaltaxex">
-                                            <input class="totalTaxEx" type="number" name="total_amount_exc" value="<?php echo $total_amount_exc_input; ?>" />
+                                        <td class="sec-reg-inner-form-table-tot-totaltaxex">¥
+                                            <!-- <input class="totalTaxEx" type="number" name="total_amount_exc" value="<?php echo $total_amount_exc_input; ?>" /> -->
                                         </td>
-                                        <td class="sec-reg-inner-form-table-tot-totaltaxin">
-                                            <input class="totalTaxIx" type="number" name="total_amount_inc" value="<?php echo $total_amount_inc_input; ?>" />
+                                        <td class="sec-reg-inner-form-table-tot-totaltaxin">¥
+                                            <!-- <input class="totalTaxIx" type="number" name="total_amount_inc" value="<?php echo $total_amount_inc_input; ?>" /> -->
                                         </td>
                                     </tr>
                                     <tr class="sec-reg-inner-form-table-txt">
