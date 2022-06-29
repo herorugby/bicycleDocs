@@ -100,10 +100,9 @@ try {
                             foreach ($stmt_all_lists as $list_value) :
                         ?>
                                 <div class="accordion sec-cho-inner-choo-ac">
-
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">ア行</p>
                                     <?php
-                                    if ($a_lists = preg_grep('!オ!', $list_value)) :
+                                    if ($a_lists = preg_grep('{^ア|^イ|^ウ|^エ|^オ}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($a_lists); ?></li>
@@ -118,7 +117,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">カ行</p>
                                     <?php
-                                    if ($ka_lists = preg_grep('^カ|^ｶ', $list_value)) :
+                                    if ($ka_lists = preg_grep('{^カ|^キ|^ク|^ケ|^コ}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ka_lists); ?></li>
@@ -133,7 +132,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">サ行</p>
                                     <?php
-                                    if ($sa_lists = preg_grep('^サ|^ｻ', $list_value)) :
+                                    if ($sa_lists = preg_grep('{^サ|^シ|^ス|^セ|^ソ}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($sa_lists); ?></li>
@@ -148,7 +147,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">タ行</p>
                                     <?php
-                                    if ($ta_lists = preg_grep('^タ|^ﾀ', $list_value)) :
+                                    if ($ta_lists = preg_grep('{^タ|^チ|^ツ|^テ|^ト}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ta_lists); ?></li>
@@ -163,7 +162,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">ナ行</p>
                                     <?php
-                                    if ($na_lists = preg_grep('^ナ|^ﾅ', $list_value)) :
+                                    if ($na_lists = preg_grep('{^ナ|^ニ|^ヌ|^ネ|^ノ}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($na_lists); ?></li>
@@ -178,7 +177,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">ハ行</p>
                                     <?php
-                                    if ($ha_lists = preg_grep('^ハ|^ﾊ', $list_value)) :
+                                    if ($ha_lists = preg_grep('{^ハ|^ヒ|^フ|^ヘ|^ホ}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ha_lists); ?></li>
@@ -193,7 +192,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">マ行</p>
                                     <?php
-                                    if ($ma_lists = preg_grep('^マ|^ﾏ', $list_value)) :
+                                    if ($ma_lists = preg_grep('{^マ|^ミ|^ム|^メ|^モ}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($ma_lists); ?></li>
@@ -208,7 +207,7 @@ try {
                                 <div class="accordion sec-cho-inner-choo-ac">
                                     <p class="accordion-list sec-cho-inner-choo-ac-list">ヤ・ラ・ワ行</p>
                                     <?php
-                                    if ($yarawa_lists = preg_grep('^ヤ|^ﾔ|^ラ|^ﾗ|^ワ|^ﾜ', $list_value)) :
+                                    if ($yarawa_lists = preg_grep('{^ヤ|^ユ|^ヨ|^ラ|^リ|^ル|^レ|^ロ|^ワ|^ヲ|^ン}', $list_value)) :
                                     ?>
                                         <ul>
                                             <li class="accordion-item sec-cho-inner-choo-ac-item"><?php echo h($yarawa_lists); ?></li>

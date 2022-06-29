@@ -468,10 +468,10 @@ if (isset($_REQUEST['action'])) {
                                         <td>
                                             <input type="text" name="size_color" value="<?php echo $size_color_input; ?>" />
                                         </td>
-                                        <td>
-                                            <input type="number" name="quantity" value="<?php echo $quantity_input; ?>" />
+                                        <td class="numberBox">
+                                            <input class="order_amount" type="number" name="quantity" value="<?php echo $quantity_input; ?>" />
                                         </td>
-                                        <td>
+                                        <td class="taxExBox">
                                             <input class="taxEx" type="number" name="amount_exclude" value="<?php echo $amount_exclude_input; ?>" />
                                         </td>
                                         <td class="taxInBox">
@@ -552,7 +552,7 @@ if (isset($_REQUEST['action'])) {
         <!-- END footer -->
     </div>
 
-    <!-- <script src="../js/table.js"></script> -->
+    <script src="../js/table.js"></script>
     <script src="../js/copyright.js"></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </body>

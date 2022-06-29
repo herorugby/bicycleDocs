@@ -1,5 +1,4 @@
 <?php
-
 // セッションがあるかを判定してからスタートする
 if (!isset($_SESSION)) {
     session_start();
@@ -50,7 +49,7 @@ if (!empty($_POST)) {
 
             // テーブルのメアド、パスのデータを指定
             $stmt->bindValue(1, $_POST['email'], PDO::PARAM_STR);
-            $stmt->bindValue(2, sha1($_POST['password']), PDO::PARAM_STR);
+            $stmt->bindValue(2, $_POST['password'], PDO::PARAM_STR);
 
             // sql文の発行
             $result = $stmt->execute();
@@ -133,7 +132,7 @@ if (!empty($_POST)) {
                     </div>
                     <div class="sec-log-inner-contents contents">
                         <p>メールアドレスとパスワードを入力し、ログインボタンを押して下さい。</p>
-                        <p>新規ユーザー登録がお済みでない方は、下記よりご登録をお願いいたします。</p>
+                        <!-- <p>新規ユーザー登録がお済みでない方は、下記よりご登録をお願いいたします。</p> -->
                     </div>
 
                     <!-- START:login-form -->
@@ -142,9 +141,9 @@ if (!empty($_POST)) {
 
                             <!-- メールアドレス -->
                             <div class="form-item sec-log-inner-form-item">
-                                <label for="email" class="form-item-label sec-log-inner-form-item-label">メールアドレス</label>
+                                <label for="email" class="form-item-label sec-log-inner-form-item-label">メールアドレス<span class="required">必須</span></label>
                                 <div class="form-item-input sec-log-inner-form-item-input">
-                                    <input id="email" type="mail" name="email" placeholder="abcd123@efg.com" value="<?php echo $email_input; ?>" required />
+                                    <input id="email" type="mail" name="email" placeholder="abcd123@efg.com" value="<?php echo $email_input; ?>" />
                                 </div>
                             </div>
 
@@ -152,7 +151,7 @@ if (!empty($_POST)) {
                             <div class="form-item sec-reg-inner-form-item">
                                 <label for="password" class="form-item-label sec-log-inner-form-item-label">パスワード<span class="required">必須</span></label>
                                 <div class="form-item-input sec-log-inner-form-item-input">
-                                    <input id="password" type="password" name="password" minlength="4" value="<?php echo $password_input; ?>" required />
+                                    <input id="password" type="password" name="password" minlength="4" value="<?php echo $password_input; ?>" />
                                 </div>
                             </div>
 
@@ -181,9 +180,9 @@ if (!empty($_POST)) {
 
                     </div>
                     <!-- END:login-form -->
-                    <div class="button-a">
+                    <!-- <div class="button-a">
                         <a href="join/">新規ユーザー登録をする</a>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <!-- END:#section-login -->

@@ -11,45 +11,45 @@ require_once('dbconnect.php');
 // function関数のファイルを呼び出し
 require_once('myfunc.php');
 
-// DataBaseに登録されているデータの取得
-// ログイン時にセッションを保存し、idがある場合とセッションに保存した時間足す１時間の合計時間が現在時間より大きければログイン状態となる。現在時間が大きくなるとログアウト
-if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-    // 何かアクションを起こした時にセッションの時間を現在の時間に更新する
-    $_SESSION['time'] = time();
+// // DataBaseに登録されているデータの取得
+// // ログイン時にセッションを保存し、idがある場合とセッションに保存した時間足す１時間の合計時間が現在時間より大きければログイン状態となる。現在時間が大きくなるとログアウト
+// if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
+//     // 何かアクションを起こした時にセッションの時間を現在の時間に更新する
+//     $_SESSION['time'] = time();
 
-    try {
-        // アカウントのidを取得する
-        $sql_select_id = "SELECT * FROM ";
-        $sql_select_id .= "account ";
-        $sql_select_id .= "WHERE ";
-        $sql_select_id .= "id=?";
+//     try {
+//         // アカウントのidを取得する
+//         $sql_select_id = "SELECT * FROM ";
+//         $sql_select_id .= "account ";
+//         $sql_select_id .= "WHERE ";
+//         $sql_select_id .= "id=?";
 
-        // sql文の準備
-        $stmt_id = $dbh->prepare($sql_select_id);
+//         // sql文の準備
+//         $stmt_id = $dbh->prepare($sql_select_id);
 
-        // テーブルのメアド、パスのデータを指定
-        $stmt_id->bindValue(1, $_SESSION['id'], PDO::PARAM_INT);
+//         // テーブルのメアド、パスのデータを指定
+//         $stmt_id->bindValue(1, $_SESSION['id'], PDO::PARAM_INT);
 
-        // sql文の発行
-        $result_id = $stmt_id->execute();
+//         // sql文の発行
+//         $result_id = $stmt_id->execute();
 
-        // sql文が発行できたら条件分岐を実行
-        if ($result_id) {
-            // 取得データを連想配列で$memberに代入。
-            $member = $stmt_id->fetch(PDO::FETCH_ASSOC);
-            // 取得したデータの名前をエスケープで変数に格納
-            $nickname = h($member['name']);
-            $picture = h($member['picture']);
-        }
-    } catch (PDOException $e) {
-        echo 'レコード確認エラー：' . $e->getMessage();
-        die();
-    }
-    // ログイン時のセッション等なければ
-} else {
-    header('Location: login.php');
-    die();
-}
+//         // sql文が発行できたら条件分岐を実行
+//         if ($result_id) {
+//             // 取得データを連想配列で$memberに代入。
+//             $member = $stmt_id->fetch(PDO::FETCH_ASSOC);
+//             // 取得したデータの名前をエスケープで変数に格納
+//             $nickname = h($member['name']);
+//             $picture = h($member['picture']);
+//         }
+//     } catch (PDOException $e) {
+//         echo 'レコード確認エラー：' . $e->getMessage();
+//         die();
+//     }
+//     // ログイン時のセッション等なければ
+// } else {
+//     // header('Location: login.php');
+//     die();
+// }
 
 /*
 お客様情報検索
@@ -139,7 +139,7 @@ if (!empty($_POST)) {
             <section id="section-welcome" class="sec-wel">
                 <div class="sec-wel-inner">
                     <div class="inner-title sec-wel-inner-tit">
-                        <h2>WELCOME!!!<?php echo $nickname; ?>様</h2>
+                        <!-- <h2>WELCOME!!!<?php echo $nickname; ?>様</h2> -->
                     </div>
                     <div class="sec-wel-inner-sam">
                         <!-- <img src="member_picture/<?php echo h($post['picture']); ?>" width="48" height="48" alt="" /> -->
